@@ -1,0 +1,71 @@
+
+body {
+  font-family: Georgia, serif;
+  margin: 0;
+  padding: 0px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #000000;
+}
+
+ul{
+  display:block;
+  position:sticky;
+  list-style-type:none;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  background-color: #000000;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+}
+li {
+  background: url(images/background-texture-grunge-rust.jpg) no-repeat center;
+  background-size: 100% 100%;
+  float: left;
+  border-right: 1px solid #ffffff;
+}
+
+li a {
+  display: block;
+  color:white;
+  text-align:center;
+  padding: 14px 16px;            
+  text-decoration:none; 
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none; 
+}
+li :hover {
+  background-color: #000000;
+}
+li a:active {
+  background-color: rgb(29, 124, 208);
+  color: white;
+}
+li a:hover:not(.active){
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+}
+
+.container {
+  max-width: 4000px; /* Maximum width */
+  max-height: 4000px;
+  margin: 0; /* Center it */
+}
+.container img {
+  width: 100%;
+}
+
+.container .content {
+  position: sticky; /* Position the background text */
+  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+  width: 100%; /* Full width */
+  padding: 20px; /* Some padding */
+}
+

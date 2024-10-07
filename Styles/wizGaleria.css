@@ -1,0 +1,547 @@
+body {
+    font-family: Arial;
+    margin: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  img {
+    vertical-align: middle;
+  }
+  
+  /* Position the image container (needed to position the left and right arrows) */
+  .container {
+    position: relative;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* Container for image text */
+  .caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 16.66%;
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
+  /* General Styles */
+
+body {
+  font-family: Georgia, serif;
+  margin: 0;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.hero-image {
+  background: url(images/background-color-blue-in-html.jpg) no-repeat center; 
+  background-size: cover;
+  height: 500px;
+  position: relative;
+}
+legend{
+  color: #ffffff;
+}
+html {
+  background: url(images/cement.jpg) no-repeat center;
+  background-size: cover
+}
+#calculator {
+  /*background: url(images/background-texture-grunge-rust.jpg) no-repeat center;*/
+  background-size: 100% 100%;
+  
+  background-color: rgba(0, 0, 43, 0.467);
+  border: 1px solid black
+  
+  
+}
+ul{
+  display:block;
+  position:sticky;
+  list-style-type:none;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  background-color: #333;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+}
+li {
+  background: url(images/background-texture-grunge-rust.jpg) no-repeat center;
+  background-size: 100% 100%;
+  float: left;
+  border-right: 1px solid #000000;
+}
+
+li a {
+  display: block;
+  color:white;
+  text-align:center;
+  padding: 14px 16px;            
+  text-decoration:none; 
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none; 
+}
+li :hover {
+  background-color: #000000;
+}
+li a:active {
+  background-color: rgb(29, 124, 208);
+  color: white;
+}
+li a:hover:not(.active){
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+}
+
+.input-list {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+.input-grid {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+h1 {
+  text-align: center;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 20px;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+  font-family: Verdana, sans-serif;
+  color:white
+}
+
+
+h3 {
+  text-align: center;
+}
+p {
+text-align: center;
+}
+
+
+
+
+input[type="number"] {
+width: 110%;
+padding: 8px;
+border: 1px solid #000000;
+border-radius: 4px;
+box-sizing: border-box;
+box-shadow: 2px 2px 7px 1px rgba(28,110,164,0.58);
+transition: width .35s ease-in-out;
+outline: none;
+}
+
+input[type="number"]:focus {
+width: 100%;
+color: #000000;
+background-color: #ffffff;
+border: 2px solid #555;
+}
+.input-container {
+display: grid;
+grid-template-columns: 50px 1fr 50px;
+align-items: center;
+gap: 10px;
+}
+p.equal, p.unit {
+margin: 0;
+color:whitesmoke;
+text-align: left;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  border-radius:4px;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 7px 1px rgba(28,110,164,0.58);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+select:hover {
+  border: 2px solid #0dff00;
+}
+
+select:focus {
+  color: #000000;
+  border: 2px solid #0dff00;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #19d900b4;
+  color: rgb(255, 255, 255);
+  border: 1px solid #000000;
+  border-radius: 50px;
+  
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+button:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+  box-shadow: 2px 2px 7px 1px rgba(28,110,164,0.58);
+}
+
+/* CLASSES */
+
+
+.descriptions-container,
+.formula-container
+{
+  width: calc(33.33% - 10px);
+  padding: 10px;
+  float: left;
+  box-sizing: border-box;
+
+}
+
+.result-container {
+  border: 1px solid #000000;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #ffffffb4;
+}
+
+/*Description container */
+.description-info {
+  background-color: #c1c0c0;
+  padding: 10px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  margin-top: 5px;
+  box-shadow: 2px 2px 7px 1px rgba(28,110,164,0.58);
+}
+
+.formula-info {
+  background-color: #c1c0c0;
+  padding: 100px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 2px 2px 7px 1px rgba(28,110,164,0.58);
+}
+
+.clearfix::after {
+  content: "";
+  
+  clear: both;
+  display: table;
+}
+
+.wzor {
+  background-color: #545461;
+  color: white;
+  text-shadow: 1px 2px 5px rgb(180, 180, 180);
+  text-align: center;
+}
+
+
+.parametrybez {
+color: whitesmoke;
+}
+.ograniczenia {
+text-align: left;
+}
+.footer {
+  position: absolute;
+  width: 100%;
+  background: #3586ff;
+  min-height: 10px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: auto;
+}
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("images/wave.png");
+  background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWaves 4s linear infinite;
+}
+
+.wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animate 4s linear infinite !important;
+}
+
+.wave#wave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWaves 3s linear infinite;
+}
+
+.wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+
+.image-crop {
+  width:200px;
+  height:200px;
+  padding: 10px;
+  border: 10px solid #000000;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.image-container {
+  width:100%;
+  height: 20%;
+  position: relative;
+  text-align:center;
+  color:white
+}
+div.image-text {
+  position: absolute;
+  top:35%;
+  left: 50%;
+  transform:translate(-50%, -50%);
+}
+
+.start-button {
+  position: absolute;
+  top:73%;
+  left: 50%;
+  transform:translate(-50%, -50%);
+  text-decoration: none;
+  padding: 0.5rem;
+  border: 1px solid #333333;
+  display: block;
+  width: 200px;
+  height:20px;
+  padding: 10px;
+  background-color: #121712b4;
+  color: rgb(255, 255, 255);
+  border: 1px solid #000000;
+  border-radius: 15px;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+.start-button:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+  box-shadow: 2px 2px 7px 1px rgba(28,110,164,0.58);
+}
+#instructions {
+  text-align: left;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 95%;
+  
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  font-size: small;
+}
+
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+tr:nth-child(odd) {
+  background-color: #969696;
+}
+table#valueTable {
+  width: 50%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+table#valueTable th, table#valueTable td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+table#valueTable th {
+  background-color: #f2f2f2;
+}
+.result {
+  width: 10%;
+}
+.opis {
+  width: 30%;
+}
+.wzory {
+  width: 20%
+}
+.pStatek {
+  background-color:#ea5050b4 ;
+}
+
+.pAkwen {
+  background-color:#4658cc  ;
+}
+
+.pKorekcyjny {
+  background-color: #60b560;
+}
+
+.ale {
+width: 100%;
+border-collapse: collapse;
+}
+.ale th, td {
+border: 1px solid black;
+text-align: center;
+padding: 8px;
+}
+.ale th {
+background-color: #d9d9d9;
+}
+
+.blue-background {
+background-color: #b3e0ff;
+}
+
+.green-background {
+background-color: #b3ffcc;
+}
+
+.red-background {
+background-color: #ff9999;
+}
+
+.note {
+color: red;
+font-weight: bold;
+text-align: center;
+}
+/*cool color background-color: #feac32;background-image:linear-gradient(#fecc4c, #ffac33);border: 3px solid #feac32; */ 
