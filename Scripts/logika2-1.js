@@ -1,6 +1,4 @@
 
-//TO DO: Sprawdzić pliki css, nie łączą się z oryginalnym plikiem
-//nie wyswietlaja wyników
 
 MathJax.Hub.Config({
     tex2jax: {
@@ -48,7 +46,7 @@ function updateFormulaInfo() {
         
     };
 
-    // Update the formula info element with the selected formula's information
+    
     formulaInfoElement.innerHTML = `<h3>${formulaInfo[selectedFormula].title}</h3><p>${formulaInfo[selectedFormula].content}</p>`;
 }
 function calculate() {
@@ -66,18 +64,18 @@ function calculate() {
     var num10 = parseFloat(document.getElementById('num10').value);
     var num11 = parseFloat(document.getElementById('num11').value);
 
-    // Space for more input values
+    
     var ulamek1 = (parseFloat(num5) * parseFloat(num6)) /
     ((parseFloat(num7) * parseFloat(num8)) - (parseFloat(num5) * parseFloat(num6)))
     // Variable to store the calculated result
     
-    // Get the selected formula
+    
     var selectedFormula = document.getElementById("formulaSelect").value;
 
-    // Variable to store the calculated result
+    
     var result;
   
-    // Use a switch statement with modifications
+    
     switch (selectedFormula) {
       case "formula1":
         result = ((parseFloat(num1) * parseFloat(num2)) +
@@ -140,7 +138,7 @@ function calculate() {
     const num12 = parseFloat(document.getElementById('num12').value);
     const num13 = parseFloat(document.getElementById('num13').value);
   
-    // Define formulas object with functions
+    
     const formulas = {
         "formula1": function(inputs) {
           const ulamek1 = (inputs[4] * inputs[5]) / ((inputs[6] * inputs[7]) - (inputs[4] * inputs[5]));
@@ -170,7 +168,7 @@ function calculate() {
     results.push({ formulaName, result });
   }
 
-  // Update the corresponding result containers for each formula
+  
   for (const { formulaName, result } of results) {
     const containerId = `resultContainer-${formulaName}`;
     document.getElementById(containerId).innerHTML = `<p>Wynik dla ${formulaName}: ${result.toFixed(2)}</p>`;
@@ -185,7 +183,7 @@ function updateDescriptionInfo() {
     var descriptionInfoElement = document.getElementById("descriptionInfo");
     var selectedDescription = selectDescription.value;
 
-    // Define information for each formula
+    
     var descriptionInfo = {
         none: {
             title: "Informacje o parametrze",
@@ -250,7 +248,7 @@ function updateDescriptionInfo() {
         
     };
 
-    // Update the description info element with the selected parameter's information
+    
     if (selectedDescription === "none") {
         descriptionInfoElement.innerHTML = `<h3>${descriptionInfo.none.title}</h3><p>${descriptionInfo.none.content}</p>`;
     } else {
@@ -360,7 +358,7 @@ function updateTable(inputId, cellId) {
       document.getElementById(inputId).value = inputValue.slice(0, 6);
   }
   
-  // Update the corresponding cell
+ 
   document.getElementById(cellId).textContent = document.getElementById(inputId).value;
 }
 
