@@ -1,4 +1,9 @@
 
+//TO DO: Sprawdzić pliki css, nie łączą się z oryginalnym plikiem
+//nie wyswietlaja wyników
+
+
+
 
 MathJax.Hub.Config({
     tex2jax: {
@@ -7,6 +12,23 @@ MathJax.Hub.Config({
         processEscapes: true
     }
 });
+
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
 function updateFormulaInfo() {
     var selectElement = document.getElementById("formulaSelect");
     var formulaInfoElement = document.getElementById("formulaInfo");
@@ -46,7 +68,7 @@ function updateFormulaInfo() {
         
     };
 
-    
+    // Update the formula info element with the selected formula's information
     formulaInfoElement.innerHTML = `<h3>${formulaInfo[selectedFormula].title}</h3><p>${formulaInfo[selectedFormula].content}</p>`;
 }
 function calculate() {
@@ -64,18 +86,18 @@ function calculate() {
     var num10 = parseFloat(document.getElementById('num10').value);
     var num11 = parseFloat(document.getElementById('num11').value);
 
-    
+    // Space for more input values
     var ulamek1 = (parseFloat(num5) * parseFloat(num6)) /
     ((parseFloat(num7) * parseFloat(num8)) - (parseFloat(num5) * parseFloat(num6)))
     // Variable to store the calculated result
     
-    
+    // Get the selected formula
     var selectedFormula = document.getElementById("formulaSelect").value;
 
-    
+    // Variable to store the calculated result
     var result;
   
-    
+    // Use a switch statement with modifications
     switch (selectedFormula) {
       case "formula1":
         result = ((parseFloat(num1) * parseFloat(num2)) +
@@ -123,7 +145,7 @@ function calculate() {
     // Array to store calculated results
     const results = [];
   
-    // Get input values (assuming all input IDs are known)
+    // Get input values 
     const num1 = parseFloat(document.getElementById('num1').value);
     const num2 = parseFloat(document.getElementById('num2').value);
     const num3 = parseFloat(document.getElementById('num3').value);
@@ -138,7 +160,7 @@ function calculate() {
     const num12 = parseFloat(document.getElementById('num12').value);
     const num13 = parseFloat(document.getElementById('num13').value);
   
-    
+    // Define formulas object with functions
     const formulas = {
         "formula1": function(inputs) {
           const ulamek1 = (inputs[4] * inputs[5]) / ((inputs[6] * inputs[7]) - (inputs[4] * inputs[5]));
@@ -168,7 +190,7 @@ function calculate() {
     results.push({ formulaName, result });
   }
 
-  
+  // Update the corresponding result containers for each formula
   for (const { formulaName, result } of results) {
     const containerId = `resultContainer-${formulaName}`;
     document.getElementById(containerId).innerHTML = `<p>Wynik dla ${formulaName}: ${result.toFixed(2)}</p>`;
@@ -183,7 +205,7 @@ function updateDescriptionInfo() {
     var descriptionInfoElement = document.getElementById("descriptionInfo");
     var selectedDescription = selectDescription.value;
 
-    
+    // Define information for each formula
     var descriptionInfo = {
         none: {
             title: "Informacje o parametrze",
@@ -248,7 +270,7 @@ function updateDescriptionInfo() {
         
     };
 
-    
+    // Update the description info element with the selected parameter's information
     if (selectedDescription === "none") {
         descriptionInfoElement.innerHTML = `<h3>${descriptionInfo.none.title}</h3><p>${descriptionInfo.none.content}</p>`;
     } else {
@@ -257,52 +279,157 @@ function updateDescriptionInfo() {
 }
 
 
-function calculateAll(){
-    // Array to store calculated results
-  
-  
-    // Get input values (assuming all input IDs are known)
-    const num1 = parseFloat(document.getElementById('num1').value);
-    const num2 = parseFloat(document.getElementById('num2').value);
-    const num3 = parseFloat(document.getElementById('num3').value);
-    const num4 = parseFloat(document.getElementById('num4').value);
-    const num5 = parseFloat(document.getElementById('num5').value);
-    const num6 = parseFloat(document.getElementById('num6').value);
-    const num7 = parseFloat(document.getElementById('num7').value);
-    const num8 = parseFloat(document.getElementById('num8').value);
-    const num9 = parseFloat(document.getElementById('num9').value);
-    const num10 = parseFloat(document.getElementById('num10').value);
-    const num11 = parseFloat(document.getElementById('num11').value);
-    const num12 = parseFloat(document.getElementById('num12').value);
-    const num13 = parseFloat(document.getElementById('num13').value);
-  
+function calculateAllSD(){
 
-var ulamek1 = (parseFloat(num5) * parseFloat(num6)) /
-((parseFloat(num7) * parseFloat(num8)) - (parseFloat(num5) * parseFloat(num6)))
+  const num1 = parseFloat(document.getElementById('num1').value); //n
+  const num2 = parseFloat(document.getElementById('num2').value); // Tmax
+  const num3 = parseFloat(document.getElementById('num3').value); //m
+  const num4 = parseFloat(document.getElementById('num4').value); //Cb
+
+  const num5 = parseFloat(document.getElementById('num5').value); //B
+  const num6 = parseFloat(document.getElementById('num6').value); //T
+  const num7 = parseFloat(document.getElementById('num7').value); //b
+  const num8 = parseFloat(document.getElementById('num8').value); //h
+
+  const num9 = parseFloat(document.getElementById('num9').value); //v
+  const num10 = parseFloat(document.getElementById('num10').value); //10
+  const num11 = parseFloat(document.getElementById('num11').value); //hfl
+  const num12 = parseFloat(document.getElementById('num12').value); //l
+
+  const num13 = parseFloat(document.getElementById('num13').value); //L
+  const num14 = parseFloat(document.getElementById('num14').value); //t
+  const num15 = parseFloat(document.getElementById('num15').value); //lambda fl
+  const num16 = parseFloat(document.getElementById('num16').value); //Air draft, H
+
+  const num17 = parseFloat(document.getElementById('num17').value); // OHCs
+
+
+var ulamek1 = ((parseFloat(num5) * parseFloat(num6)) /
+((parseFloat(num7) * parseFloat(num8)) - (parseFloat(num5) * parseFloat(num6))))
 var ulamek2 = (0.113 * num5 * (num8 / num6)) ** -(27 / 100)  
 let term1 = num1 * num2;
 let term2 = num3 * (0.113 * num5 * Math.pow(num8 / num6, -0.27) * Math.pow(0.514 * num9 / Math.sqrt(9.81 * num8), 1.8));
 let term3 = num10 * num11 
 let term4 = num3 * num12 * 0.049047542 * Math.pow(num9, 2) * Math.sqrt(num6 / num8) * Math.pow(num13 / num5, -1.11);
+let term5 = (num3/2) * (0.113 * num5 * Math.pow(num8 / num6, -0.27) * Math.pow(0.514 * num9 / Math.sqrt(9.81 * num8), 1.8));
+let term6 = (num3/2) * num12 * 0.049047542 * Math.pow(num9, 2) * Math.sqrt(num6 / num8) * Math.pow(num13 / num5, -1.11);
 
-  var results = [1,
+var results = [1,
     ((parseFloat(num1) * parseFloat(num2)) +
     (parseFloat(num3) * parseFloat(num4) / 30) * ulamek1 ** (2.0 / 3.0) * num9 ** (2.08) + num10 * num11), 
     (num1 * num2 + num3 * (0.01 * num4 * num9 ** (2)) + num10 * num11),
     (num1 * num2 + num3 * (0.02 * num4 * num9 ** (2)) + num10 * num11),
     (term1 + term2 + term3),
     (term1 + term4 + term3),
-    (num5*num6 / num7)
+
+    (num16 + num17) - (num3 * num4 / 60) * ulamek1 ** (2.0 / 3.0) * num9 ** (2.08),
+    (num16 + num17 - (0.005 * num3 * num4 * num9**(2))),
+    (num16 + num17 - 0.01 * num3 * num4 * num9**(2)),
+    (num16 + num17 - term5),
+    (num16 + num17 - term6)
   ];
       
   
-  for (let i = 1; i < 7; i++)
-      document.getElementById(`resultContainer-${i}`).innerHTML = `<p>Wynik: ${results[i].toFixed(2)}`
+  for (let i = 1; i < 11; i++)
+      document.getElementById(`result-${i}`).innerHTML = `${results[i].toFixed(4)}`
   
 }
+function calculateTest (){
+
+}
+function calculateAllVZ(){
+  
+  const num1 = parseFloat(document.getElementById('num1').value); //n
+  const num2 = parseFloat(document.getElementById('num2').value); //Tmax
+  const num3 = parseFloat(document.getElementById('num3').value); //m
+  const num4 = parseFloat(document.getElementById('num4').value); //Cb
+
+  const num5 = parseFloat(document.getElementById('num5').value); //B
+  const num6 = parseFloat(document.getElementById('num6').value); //T
+  const num7 = parseFloat(document.getElementById('num7').value); //b
+  const num8 = parseFloat(document.getElementById('num8').value); //h
+
+  const num9 = parseFloat(document.getElementById('num9').value); //v
+  const num10 = parseFloat(document.getElementById('num10').value); //k
+  const num11 = parseFloat(document.getElementById('num11').value); //hfl
+  const num12 = parseFloat(document.getElementById('num12').value); //l
+
+  const num13 = parseFloat(document.getElementById('num13').value); //L
+  const num14 = parseFloat(document.getElementById('num14').value); //t
+  const num15 = parseFloat(document.getElementById('num15').value); //lambda fl
+  const num16 = parseFloat(document.getElementById('num16').value); //Air draft, H
+  const num17 = parseFloat(document.getElementById('num17').value); // OHCs
+  
+  const resultSDD1 = document.getElementById("result-1");
+  const resultValue = parseFloat(resultSDD1.innerText);
+
+  const resultSDD2 = document.getElementById("result-2");
+  const resultValue2 = parseFloat(resultSDD2.innerText);
+
+  const resultSDD3 = document.getElementById("result-3");
+  const resultValue3 = parseFloat(resultSDD3.innerText);
+
+  const resultSDD4 = document.getElementById("result-4");
+  const resultValue4 = parseFloat(resultSDD4.innerText);
+
+  const resultSDD5 = document.getElementById("result-5");
+  const resultValue5 = parseFloat(resultSDD5.innerText);
+
+  const resultSDD6 = document.getElementById("result-6");
+  const resultValue6 = parseFloat(resultSDD6.innerText);
+
+  const resultSDD7 = document.getElementById("result-7");
+  const resultValue7 = parseFloat(resultSDD7.innerText);
+
+  const resultSDD8 = document.getElementById("result-8");
+  const resultValue8 = parseFloat(resultSDD8.innerText);
+
+  const resultSDD9 = document.getElementById("result-9");
+  const resultValue9 = parseFloat(resultSDD9.innerText);
+
+  const resultSDD10 = document.getElementById("result-10");
+  const resultValue10 = parseFloat(resultSDD10.innerText);
+
+  if (isNaN(resultValue)) {
+      alert("Najpierw oblicz wyniki dla domen!");
+      return;
+  }
+  var ulamek1 = (parseFloat(num5) * parseFloat(num6)) /
+((parseFloat(num7) * parseFloat(num8)) - (parseFloat(num5) * parseFloat(num6)))
+
+  const transformedValue = (30 * (resultValue - num1 * num2 - num10 * num11) / ((parseFloat(num3) * parseFloat(num4)) * ulamek1 ** (2/3))) ** (25/52)  ; 
+  document.getElementById("result-11").innerText = transformedValue.toFixed(2);
+
+  const transformedValue2 = ((resultValue2 - num1 * num2 - num10 * num11) / (0.01 * num3 * num4)) ** (1 / 2); 
+  document.getElementById("result-12").innerText = transformedValue2.toFixed(2);
+
+  const transformedValue3 =((resultValue3 - num1 * num2 - num10 * num11) / (0.02 * num3 * num4)) ** (1 / 2); 
+  document.getElementById("result-13").innerText = transformedValue3.toFixed(2);
+
+  const transformedValue4 = 6.533*((9.81 * num8) ** (1 / 2)) * ((resultValue4 - num1 * num2 - num10 * num11) / (num3 * num5)) ** (5 / 9) * (num8 / num6) ** (0.15) 
+  document.getElementById("result-14").innerText = transformedValue4.toFixed(2);
+
+  const transformedValue5 = 4.5154 * ((resultValue5 - num1 * num2 - num10 * num11) / (num3 * num12 * (( num6 / num8 ) ** (1 / 2)) * (( num13 / num5 ) ** (-1.11))) ) ** (1 / 2); 
+  document.getElementById("result-15").innerText = transformedValue5.toFixed(2);
 
 
 
+  const transformedValue6 = ((60 * (resultValue6 - num16 - num17)) / (num3 * num4 * ulamek1 ** (2/3))) ** (25/52); 
+  document.getElementById("result-16").innerText = transformedValue6.toFixed(2);
+
+  const transformedValue7 = ((resultValue7 - num16 - num17) / (0.005 * num3 * num4)) ** (1 / 2); 
+  document.getElementById("result-17").innerText = transformedValue7;
+
+  const transformedValue8 = ((resultValue8 - num16 - num17) / (0.01 * num3 * num4)) ** (1 / 2); 
+  document.getElementById("result-18").innerText = transformedValue8;
+
+  const transformedValue9 = 13.066*((9.81 * num8) ** (1 / 2)) * ((resultValue9 - num16 - num17) / (num3 * num5)) ** (5 / 9) * (num8 / num6) ** (0.15) 
+  document.getElementById("result-19").innerText = transformedValue9;
+
+  const transformedValue10 = 6.3876 * ((resultValue10 - num16 - num17) / (num3 * num12 * (( num6 / num8 ) ** (1 / 2)) * (( num13 / num5 ) ** (-1.11)))) ** (1 / 2); 
+  document.getElementById("result-20").innerText = transformedValue10;
+}
+  
 
 function W(inputId, cellId, limitId) {
   let inputValue = document.getElementById(inputId).value;
@@ -340,6 +467,7 @@ function W(inputId, cellId, limitId) {
   document.getElementById('limitTL').innerHTML = tL;
   document.getElementById('limitHT').textContent = hT;
   document.getElementById('limitBTbh').textContent = BTbh;
+
   document.getElementById('cellTmax').textContent = Tmax;
   document.getElementById('cellB').textContent = b;
   document.getElementById('cellHf').textContent = hf;
@@ -347,8 +475,9 @@ function W(inputId, cellId, limitId) {
   document.getElementById('cellN').textContent = n;
   document.getElementById('cellM').textContent = m;
   document.getElementById('cellL').textContent = l;
-}
+  document.getElementById('cellCb2').textContent = cb;
 
+}
 
 function updateTable(inputId, cellId) {
   const inputValue = document.getElementById(inputId).value;
@@ -358,26 +487,253 @@ function updateTable(inputId, cellId) {
       document.getElementById(inputId).value = inputValue.slice(0, 6);
   }
   
- 
+  // Update the corresponding cell
   document.getElementById(cellId).textContent = document.getElementById(inputId).value;
 }
 
+
+
 function updateRatios() {
   const L = parseFloat(document.getElementById('num13').value);
+  const l = parseFloat(document.getElementById('num12').value);
+  
   const B = parseFloat(document.getElementById('num5').value);
   const t = parseFloat(document.getElementById('num14').value);
+  
   const b = parseFloat(document.getElementById('num7').value);
   const h = parseFloat(document.getElementById('num8').value);
   const T = parseFloat(document.getElementById('num6').value);
+  
+  const n = parseFloat(document.getElementById('num1').value);
+  const Tmax = parseFloat(document.getElementById('num2').value);
+
+  const Cb = parseFloat(document.getElementById('num4').value);
+
+  const k = parseFloat(document.getElementById('num10').value);
+  const hf = parseFloat(document.getElementById('num11').value);
+  const m = parseFloat(document.getElementById('num3').value);
+  const V = parseFloat(document.getElementById('num9').value);
+
+  const lambdafl = parseFloat(document.getElementById('num15').value);
+  const H = parseFloat(document.getElementById('num16').value);
+  const OHCr = parseFloat(document.getElementById('num17').value);
+
+
+  //UPDATING TABLE VALUE
+//metoda 2
+
+document.getElementById('cellL2').textContent = parseInt(L);
+document.getElementById('cellB2').textContent = parseInt(B);
+document.getElementById('cellH2').textContent = parseInt(H);
+document.getElementById('cellT2').textContent = parseInt(T);
+
+document.getElementById('cellv2').textContent = parseInt(V);
+document.getElementById('cellt2').textContent = parseInt(t);
+document.getElementById('cellTmax2').textContent = parseInt(Tmax);
+document.getElementById('cellCb4').textContent = Cb.toFixed(2);
+document.getElementById('cellOHCs2').textContent = OHCr.toFixed(2);
+
+document.getElementById('cellb2').textContent = parseInt(b);
+document.getElementById('cellh2').textContent = parseInt(h);
+document.getElementById('cellHf2').textContent = hf.toFixed(2);
+document.getElementById('cellHfl2').textContent = lambdafl.toFixed(1);
+
+document.getElementById('cellK2').textContent = k.toFixed(2);
+document.getElementById('cellN2').textContent = n.toFixed(2);
+document.getElementById('cellM2').textContent = m.toFixed(3);
+document.getElementById('celll2').textContent = parseInt(l);
+
+//metoda 3
+
+document.getElementById('cellL3').textContent = parseInt(L);
+document.getElementById('cellB3').textContent = parseInt(B);
+document.getElementById('cellH3').textContent = parseInt(H);
+document.getElementById('cellT3').textContent = parseInt(T);
+
+document.getElementById('cellv3').textContent = parseInt(V);
+document.getElementById('cellt3').textContent = parseInt(t);
+document.getElementById('cellTmax3').textContent = parseInt(Tmax);
+document.getElementById('cellCb5').textContent = Cb.toFixed(2);
+document.getElementById('cellOHCs3').textContent = OHCr.toFixed(2);
+
+document.getElementById('cellb3').textContent = parseInt(b);
+document.getElementById('cellh3').textContent = parseInt(h);
+document.getElementById('cellHf3').textContent = hf.toFixed(2);
+document.getElementById('cellHfl3').textContent = lambdafl.toFixed(1);
+
+document.getElementById('cellK3').textContent = k.toFixed(2);
+document.getElementById('cellN3').textContent = n.toFixed(2);
+document.getElementById('cellM3').textContent = m.toFixed(3);
+document.getElementById('celll3').textContent = parseInt(l);
+
+//metoda 4
+
+document.getElementById('cellL4').textContent = parseInt(L);
+document.getElementById('cellB4').textContent = parseInt(B);
+document.getElementById('cellH4').textContent = parseInt(H);
+document.getElementById('cellT4').textContent = parseInt(T);
+
+document.getElementById('cellv4').textContent = parseInt(V);
+document.getElementById('cellt4').textContent = parseInt(t);
+document.getElementById('cellTmax4').textContent = parseInt(Tmax);
+document.getElementById('cellCb6').textContent = Cb.toFixed(2);
+document.getElementById('cellOHCs4').textContent = OHCr.toFixed(2);
+
+document.getElementById('cellb4').textContent = parseInt(b);
+document.getElementById('cellh4').textContent = parseInt(h);
+document.getElementById('cellHf4').textContent = hf.toFixed(2);
+document.getElementById('cellHfl4').textContent = lambdafl.toFixed(1);
+
+document.getElementById('cellK4').textContent = k.toFixed(2);
+document.getElementById('cellN4').textContent = n.toFixed(2);
+document.getElementById('cellM4').textContent = m.toFixed(3);
+document.getElementById('celll4').textContent = parseInt(l);
+
+//metoda 5
+
+document.getElementById('cellL5').textContent = parseInt(L);
+document.getElementById('cellB5').textContent = parseInt(B);
+document.getElementById('cellH5').textContent = parseInt(H);
+document.getElementById('cellT5').textContent = parseInt(T);
+
+document.getElementById('cellv5').textContent = parseInt(V);
+document.getElementById('cellt5').textContent = parseInt(t);
+document.getElementById('cellTmax5').textContent = parseInt(Tmax);
+document.getElementById('cellCb7').textContent = Cb.toFixed(2);
+document.getElementById('cellOHCs5').textContent = OHCr.toFixed(2);
+
+document.getElementById('cellb5').textContent = parseInt(b);
+document.getElementById('cellh5').textContent = parseInt(h);
+document.getElementById('cellHf5').textContent = hf.toFixed(2);
+document.getElementById('cellHfl5').textContent = lambdafl.toFixed(1);
+
+document.getElementById('cellK5').textContent = k.toFixed(2);
+document.getElementById('cellN5').textContent = n.toFixed(2);
+document.getElementById('cellM5').textContent = m.toFixed(3);
+document.getElementById('celll5').textContent = parseInt(l);
+
+//metoda 6
+document.getElementById('cellL6').textContent = parseInt(L);
+document.getElementById('cellB6').textContent = parseInt(B);
+document.getElementById('cellH6').textContent = parseInt(H);
+document.getElementById('cellT6').textContent = parseInt(T);
+
+document.getElementById('cellv6').textContent = parseInt(V);
+document.getElementById('cellt6').textContent = parseInt(t);
+document.getElementById('cellTmax6').textContent = parseInt(Tmax);
+document.getElementById('cellCb8').textContent = Cb.toFixed(2);
+document.getElementById('cellOHCs6').textContent = OHCr.toFixed(2);
+
+document.getElementById('cellb6').textContent = parseInt(b);
+document.getElementById('cellh6').textContent = parseInt(h);
+document.getElementById('cellHf6').textContent = hf.toFixed(2);
+document.getElementById('cellHfl6').textContent = lambdafl.toFixed(1);
+
+document.getElementById('cellK6').textContent = k.toFixed(2);
+document.getElementById('cellN6').textContent = n.toFixed(2);
+document.getElementById('cellM6').textContent = m.toFixed(3);
+document.getElementById('celll6').textContent = parseInt(l);
+
+
+
+
   // Update T/L
   const ratioTL = t / L;
   document.getElementById('cellTL').textContent = ratioTL.toFixed(2);
+  // Update T/L 2
+  document.getElementById('celltL2').textContent = ratioTL.toFixed(2);
+
+  //update Cb
+  document.getElementById('cellCb2').textContent = Cb.toFixed(2);
+  document.getElementById('cellCb3').textContent = Cb.toFixed(2);
+
 
   // Update h/T
   const ratioHT = h / T;
   document.getElementById('cellHT').textContent = ratioHT.toFixed(2);
+  document.getElementById('hT2').textContent = ratioHT.toFixed(2);
+  document.getElementById('hT3').textContent = ratioHT.toFixed(2);
 
+
+
+  //update h/t2
+  document.getElementById('cellhT2').textContent = ratioHT.toFixed(2);
   // Update (B * T) / (b * h)
   const ratioBTbh = (B * T) / (b * h);
   document.getElementById('cellBTbh').textContent = ratioBTbh.toFixed(2);
+  document.getElementById('BTbh2').textContent = ratioBTbh.toFixed(2);
+
+  const nxTmax = n * Tmax;
+  document.getElementById('nxTmax').textContent = nxTmax.toFixed(2);
+  document.getElementById('nxTmax2').textContent = nxTmax.toFixed(2);
+  document.getElementById('nxTmax3').textContent = nxTmax.toFixed(2);
+  document.getElementById('nxTmax4').textContent = nxTmax.toFixed(2);
+  document.getElementById('nxTmax5').textContent = nxTmax.toFixed(2);
+  
+
+  
+  //update khf
+  const khf = k * hf;
+  document.getElementById('khf').textContent = khf.toFixed(2);
+  document.getElementById('khf2').textContent = khf.toFixed(2);
+  document.getElementById('khf3').textContent = khf.toFixed(2);
+  document.getElementById('khf4').textContent = khf.toFixed(2);
+  document.getElementById('khf5').textContent = khf.toFixed(2);
+  
+
+  const LB = L / B;
+  document.getElementById('LB').textContent = LB.toFixed(2);
+
+  //Współczynniki osiadania
+  //metoda 1
+  const wOsi = ( m * Cb / 30 ) * (((B * T) / (b * h - B * T))**(2 / 3)) * (V)**(2.08)
+  document.getElementById('wOsi').textContent = wOsi.toFixed(6);
+
+  const wOsi2 =  m * Cb  * ((B * T) / (b * h - B * T))
+  document.getElementById('wOsi2').textContent = wOsi2.toFixed(6);
+  document.getElementById('wOsi4').textContent = wOsi2.toFixed(6);
+
+  const wOsi3 = ( m * Cb / 60 ) * (((B * T) / (b * h - B * T))**(2 / 3)) * (V)**(2.08)
+  document.getElementById('wOsi3').textContent = wOsi3.toFixed(6);
+
+  const wOsi5 = m * (0.01 * Cb * (V)**(2))
+  document.getElementById('wOsi5').textContent = wOsi5.toFixed(6);
+
+  const wOsi6 = m * 0.005 * Cb * (V)**(2);
+  document.getElementById('wOsi6').textContent = wOsi6.toFixed(6);
+
+  const wOsi7 = m * 0.005 * Cb;
+  document.getElementById('wOsi7').textContent = wOsi7.toFixed(6);
+  
+  const wOsi8 = m * 0.01 * Cb;
+  document.getElementById('wOsi8').textContent = wOsi8.toFixed(6);
+
+  //metoda 3
+  const wOsi9 = m * (0.02 * Cb * (V)**(2))
+  document.getElementById('wOsi9').textContent = wOsi9.toFixed(6);
+
+  const wOsi10 = 0.02 * Cb * m;
+  document.getElementById('wOsi10').textContent = wOsi10.toFixed(6);
+
+  const wOsi11 = 0.01 * Cb * m * (V)**(2) ;
+  document.getElementById('wOsi11').textContent = wOsi11.toFixed(6);
+
+  const wOsi12 = 0.01 * Cb * m;
+  document.getElementById('wOsi12').textContent = wOsi12.toFixed(6);
+
+  const wOsi13 = m * (0.113 * B * Math.pow(h / T, -0.27) * Math.pow(0.514 * V / Math.sqrt(9.81 * h), 1.8))
+  document.getElementById('wOsi13').textContent = wOsi13.toFixed(6);
+
+  const wOsi14 = (m / 2) * (0.113 * B * Math.pow(h / T, -0.27) * Math.pow(0.514 * V / Math.sqrt(9.81 * h), 1.8))
+  document.getElementById('wOsi14').textContent = wOsi14.toFixed(6);
+  
+  const wOsi15 = m * l * 0.049047542 * Math.pow(V, 2) * Math.sqrt(T / h) * Math.pow(L / B, -1.11)
+  document.getElementById('wOsi15').textContent = wOsi15.toFixed(6);
+
+  const wOsi16 = (m/2) * l * 0.049047542 * Math.pow(V, 2) * Math.sqrt(T / h) * Math.pow(L / B, -1.11)
+  document.getElementById('wOsi16').textContent = wOsi16.toFixed(6);
 }
+
+
+
+
