@@ -646,7 +646,12 @@ document.getElementById('celll6').textContent = parseInt(l);
   //update Cb
   document.getElementById('cellCb2').textContent = Cb.toFixed(2);
   document.getElementById('cellCb3').textContent = Cb.toFixed(2);
-
+    
+    //update ohcr
+    document.getElementById('OHCR').textContent = OHCr.toFixed(2);
+    
+    //UPDATE ADT
+    document.getElementById('ADT').textContent = H.toFixed(2);
 
   // Update h/T
   const ratioHT = h / T;
