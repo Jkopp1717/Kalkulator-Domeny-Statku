@@ -1,12 +1,21 @@
 
-body {
-  font-family: Georgia, serif;
+*{
   margin: 0;
-  padding: 0px;
+  padding: 0;
+  font-family: 'poppins', sans-serif;;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato",sans-serif;
+  background: url(/Styles/images/cement.jpg) no-repeat center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% auto;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #000000;
 }
 
 ul{
@@ -16,19 +25,21 @@ ul{
   margin:0;
   padding:0;
   overflow:hidden;
-  background-color: #000000;
+  background-color: #333;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   border-left: 1px solid black;
 }
+
 li {
   background: url(images/background-texture-grunge-rust.jpg) no-repeat center;
   background-size: 100% 100%;
   float: left;
-  border-right: 1px solid #ffffff;
+  border-right: 1px solid #000000;
 }
 
 li a {
+  font-family: "Lato",sans-serif;
   display: block;
   color:white;
   text-align:center;
@@ -50,22 +61,94 @@ li a:hover:not(.active){
   color: rgb(255, 255, 255);
 }
 
-.container {
-  max-width: 4000px; /* Maximum width */
-  max-height: 4000px;
-  margin: 0; /* Center it */
-}
-.container img {
-  width: 100%;
+.paragraf {
+  text-align: left;
+  
 }
 
-.container .content {
-  position: sticky; /* Position the background text */
-  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
-  background: rgb(0, 0, 0); /* Fallback color */
-  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-  color: #f1f1f1; /* Grey text */
-  width: 100%; /* Full width */
-  padding: 20px; /* Some padding */
+.container {
+  
+  color: azure;
+  max-width: 600px;
+  margin-top: 4%;
+  margin-left: 20%;
+  
 }
+.container h1{
+  font-family: 'poppins', sans-serif;
+  font-size: 70px;
+  font-weight: 400;
+
+}
+
+.container a {
+  text-decoration: none;
+  position: absolute;
+  display: inline-block;
+  background-color: rgb(255, 201, 65);
+  color: black;
+  font-size: 18px;
+  padding: 16px 40px;
+  margin-top: 30px;
+  margin-left: 80px;
+  border:#000000;
+  cursor: pointer;
+  border-radius: 30px;
+  text-align: center;
+  transition-duration: 0.4s;
+}
+
+.container a:hover {
+  background-color: rgb(132, 200, 73);
+  color: rgb(0, 0, 0);
+  border: #000000;
+}
+.container p{
+  font-family: "Lato",sans-serif;
+  margin-top: 2%;
+  font-size: 18px;
+}
+
+footer{
+  position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   padding: 4px;
+   background-color: rgba(35, 22, 120, 0.366);
+   color: white;
+   text-align: center;
+
+}
+.calculator-container {
+  position: absolute;
+  top: 20%;
+  left: 16%;
+  width: 200px;
+}
+
+.calculator {
+  width: 200%;
+  transform: rotate(5deg);
+}
+.calculator:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+
+
 
