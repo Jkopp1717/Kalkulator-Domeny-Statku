@@ -20,13 +20,9 @@
         <li><a href="https://jkopp1717.github.io/Kalkulator-Domeny-Statku/grafiki.html">Grafiki parametrów</a></li>
         <li><a href="https://jkopp1717.github.io/Kalkulator-Domeny-Statku/parametry.html">Jak wykonać obliczenia?</a></li>
     </ul>
-    <br>
-    <br>
-    <!-- Input fields -->
-    <fieldset id="calculator" class="clearfix" style="display: flex;">
+    <br><br><fieldset id="calculator" class="clearfix">
         <fieldset><legend>Nie rozumiesz któregoś parametru lub wzoru? Tutaj znajdziesz wszystkie informację.</legend>
-            <div class="descriptions-container" style="width:400px;transform: translate(0px, 0px) ;">
-                
+            <div class="descriptions-container">
                 <select id="descriptionSelect" onchange="updateDescriptionInfo()">
                     <option value="none" selected="default">Wybierz parametr</option>
                     <option value="L">L - Długość statku</option>
@@ -43,18 +39,14 @@
                     <option value="n">n - Współczynnik korygujący</option>
                     <option value="m">m - Współczynnik korygujący</option>
                     <option value="l">l - Współczynnik korygujący</option> 
-                    
-                    
                 </select>
                 <div id="descriptionInfo" class="description-info">
                     <div>
                         <h3>Informacja o parametrze</h3>
                         <p>Wybierz parameter, aby uzyskać informację.</p>
                     </div>
-                    
                 </div>
             </div>
-            
             </fieldset>
             
         <fieldset>
@@ -63,17 +55,22 @@
                 <div class="input-grid">
                     <div class="input-container">
                         <p class="equal">L = </p>
-                        <input type="number" step="any" id="num13" placeholder="Wprowadź L" value="100" maxlength="4" oninput="updateTable('num13', 'cellL'); updateRatios()">
+                        <input type="number" step="any" id="num13" placeholder="Wprowadź L" value="100" maxlength="4" oninput="updateTable('num13', 'cellL'); updateRatios('num13', 'cellTL'); updateRatios('num13', 'celltL2')">
                         <p class="unit">[m]</p>
                         <span class="description"></span>
                     </div>
-        
                     <div class="input-container">
                         <p class="equal">B = </p>
                         <input type="number" step="any" id="num5" placeholder="Wprowadź B" value="10" maxlength="4" oninput="updateTable('num5', 'cellB'); updateRatios()">
                         <p class="unit">[m]</p>
                         <span class="description"></span>
                     </div> 
+                    <div class="input-container">
+                        <p class="equal">ADT</sub> = </p>
+                        <input type="number" step="1" id="num16" placeholder="Wprowadź Air Draft (H)" min="0" max="50" value="20" oninput="updateTable('num16', 'cellH'); updateRatios()">
+                        <p class="unit">[-]</p>
+                        <span class="description"></span>
+                    </div>
         
                     <div class="input-container">
                         <p class="equal">T = </p>
@@ -84,21 +81,21 @@
         
                     <div class="input-container">
                         <p class="equal">v = </p>
-                        <input type="number" step="any" id="num9" placeholder="Wprowadź v" value="10" maxlength="4" oninput="updateTable('num9', 'cellV')">
+                        <input type="number" step="any" id="num9" placeholder="Wprowadź v" value="10" maxlength="4" oninput="updateTable('num9', 'cellV'); updateRatios()">
                         <p class="unit">[w]</p>
                         <span class="description"></span>
                     </div>
         
                     <div class="input-container">
                         <p class="equal">t = </p>
-                        <input type="number" step="any" id="num14" placeholder="Wprowadź t" value="0" maxlength="4" oninput="updateTable('num14', 'cellt'); updateRatios()">
+                        <input type="number" step="any" id="num14" placeholder="Wprowadź t" min="0" max="10" value="0" maxlength="1" oninput="updateTable('num14', 'cellt'); updateRatios()" required>
                         <p class="unit">[m]</p>
-                        <span class="description"></span>
+                        <span class="description"></span><!-- trym większy od ograniczenia-->
                     </div>
         
                     <div class="input-container">
                         <p class="equal">T<sub>max</sub>  = </p>
-                        <input type="number" step="any" id="num2" placeholder="Wprowadź T_max" value="15" maxlength="4" oninput="updateTable('num2', 'cellTmax')">
+                        <input type="number" step="any" id="num2" placeholder="Wprowadź T_max" value="15" maxlength="4" oninput="updateTable('num2', 'cellTmax'); updateRatios('num2', 'nxTmax')">
                         <p class="unit">[m]</p>
                         <span class="description"></span>
                     </div>
@@ -107,10 +104,17 @@
 
                     <div class="input-container">
                         <p class="equal">C<sub>b</sub> = </p>
-                        <input type="number" step="0.01" id="num4" placeholder="Wprowadź C_b" min="0" max="1" value="1" oninput="updateTable('num4', 'cellCb')">
+                        <input type="number" step="0.01" id="num4" placeholder="Wprowadź C_b" min="0" max="1" value="1" oninput="updateTable('num4', 'cellCb'); updateRatios()">
                         <p class="unit">[-]</p>
                         <span class="description"></span>
                     </div>
+                    <div class="input-container">
+                        <p class="equal">OHC<sub>r</sub> = </p>
+                        <input type="number" step="1" id="num17" placeholder="Wprowadź OHCr" min="0" max="10" value="1" oninput="updateTable('num17', 'cellOHCs') ; updateRatios()">
+                        <p class="unit">[-]</p>
+                        <span class="description"></span>
+                    </div>
+                    
                 </div>
             </div>
         </fieldset>
@@ -180,12 +184,14 @@
                         <input type="number" step="any" id="num12" placeholder="Wprowadź l" value="1.0" maxlength="4" oninput="updateTable('num12', 'celll'); updateRatios()" required>
                         <p class="unit">[-]</p>
                         <span class="description"></span>
-                        <div hidden><button onclick="calculate()">Oblicz</button></div>
-                        <div><button id="independentButton" onclick="calculateAll()">Oblicz</button></div>
+                       <!-- <div hidden><button onclick="calculate()">Oblicz</button></div>-->
+                       
                     </div>
                     
                 </div>
             </div>
+            
+            
         </fieldset>
                
 
@@ -242,55 +248,12 @@
                         <td colspan="6" class="note">UWAGA: Dla T ≤ 5 m należy przyjąć n=1.0, a do wartości obliczonej Głębokości Domeny dodać 0,50 m</td>
                     </tr>
                 </table>
-                <table id="valueTable">
-                    <thead>
-                        <tr>
-                            <th style="background-color: #ea5050b4;">L [m]</th>
-                            <th style="background-color: #ea5050b4;">B [m]</th>
-                            <th style="background-color: #ea5050b4;">T [m]</th>
-                            <th style="background-color: #ea5050b4;">v [w]</th>
-                            <th style="background-color: #ea5050b4;">t [m]</th> 
-                            <th style="background-color: #ea5050b4;">T<sub>max</sub> [m]</th>
-                            <th style="background-color:#4658cc">b [m]</th>
-                            <th style="background-color:#4658cc">h [m]</th>
-                            <th style="background-color:#4658cc">h<sub>f</sub> [m]</th>
-                            <th style="background-color:#4658cc">λ<sub>fl</sub> [m]</th>
-                            <th style="background-color: #60b560">k [-]</th>
-                            <th style="background-color: #60b560">n [-]</th>
-                            <th style="background-color: #60b560">m [-]</th>
-                            <th style="background-color: #60b560">l [-]</th>
-                            
-                            <th style="background-color: #ea5050b4;">C<sub>b</sub> [-]</th>
-                            <th style="background-color: blueviolet;">$$\frac{t}{L}$$ [-]</th>
-                            <th style="background-color: blueviolet;">$$\frac{h}{T}$$ [-]</th>
-                            <th style="background-color: blueviolet;">$$\frac{B \cdot T}{b \cdot h}$$ [-]</th>
-                        </tr>
-                    </thead>
-            
-                    <tbody id="valueTableBody">
-                        <tr>
-                            <td id="cellL">100</td>
-                            <td id="cellB">10</td>
-                            <td id="cellT">10</td>
-                            <td id="cellV">10</td>
-                            <td id="cellt">0</td> 
-                            <td id="cellTmax">15</td>
-                            <td id="cellb">200</td>
-                            <td id="cellH">40</td>
-                            <td id="cellHf">2</td>
-                            <td id="cellHfl">2</td>
-                            <td id="cellK">1.10</td>
-                            <td id="cellN">1.0</td>
-                            <td id="cellM">0.5</td>
-                            <td id="celll">1.0</td>
-                            
-                            <td id="cellCb">1</td>
-                            <td id="cellTL">0</td>
-                            <td id="cellHT">0</td>
-                            <td id="cellBTbh">0</td>
-                        </tr>
-                    </tbody>
-            </table>
+                <h2>UWAGA: Upewnij się, że parametry korekcyjne są poprawne.</h2>
+                <div class="buttons">
+                    <div class="Calculations"><button id="independentButton" class="calcButtons" onclick="calculateAllSD()">Oblicz SDD, SDH</button></div>
+                    <div class="Calculations"><button id="independentButton" class="calcButtons" onclick="calculateAllVZ()">Oblicz VZD, VZH</button></div>
+                     </div>
+                
                 </fieldset>
 
       
@@ -298,76 +261,1025 @@
 
     </fieldset>
 
+
+    <div class="tabeleMetod">
+        <button class="tablink" onclick="openPage('Home', this, 'orange')" id="defaultOpen">METODA 1</button>
+        <button class="tablink" onclick="openPage('News', this, 'orange')">METODA 2</button>
+        <button class="tablink" onclick="openPage('Contact', this, 'orange')">METODA 3</button>
+        <button class="tablink" onclick="openPage('About', this, 'orange')">METODA 4</button>
+        <button class="tablink" onclick="openPage('Metoda5', this, 'orange')">METODA 5</button>
+        <button class="tablink" onclick="openPage('Metoda6', this, 'orange')">METODA DODATKOWA</button>
+        </div>
+        
+    
 <br>
+<div id="Home" class="tabcontent">
+  
+    <h2>Metoda Grzegorza Rutkowskiego z wykorzystaniem wzorów C.B. Barrasa na osiadanie statku.</h2>
+  
 <table>
     <thead>
         <tr>
-            <th>Metoda</th>
-            <th>Wzór</th>
+            <th>
+                <table id="valueTable">
+                <thead>
+                    <tr>
+                        <th style="background-color: #ea5050b4;">L [m]</th>
+                        <th style="background-color: #ea5050b4;">B [m]</th>
+                        <th style="background-color: #ea5050b4;">H [m]</th>
+                        <th style="background-color: #ea5050b4;">T [m]</th>
+                        <th style="background-color: #ea5050b4;">v [w]</th>
+                        <th style="background-color: #ea5050b4;">t [m]</th> 
+                        <th style="background-color: #ea5050b4;">T<sub>max</sub> [m]</th>
+                        <th style="background-color: #ea5050b4;">C<sub>b</sub> [-]</th>
+                        <th style="background-color: #ea5050b4;">OHC<sub>r</sub> [m]</th>
+                        <th style="background-color:#4658cc">b [m]</th>
+                        <th style="background-color:#4658cc">h [m]</th>
+                        <th style="background-color:#4658cc">h<sub>f</sub> [m]</th>
+                        <th style="background-color:#4658cc">λ<sub>fl</sub> [m]</th>
+                        <th style="background-color: #60b560">k [-]</th>
+                        <th style="background-color: #60b560">n [-]</th>
+                        <th style="background-color: #60b560">m [-]</th>
+                        <th style="background-color: #60b560">l [-]</th>
+                        
+                        
+                        
+                        
+                    
+                    </tr>
+                </thead>
+        
+                <tbody id="valueTableBody">
+                    <tr>
+                        <td id="cellL">100</td>
+                        <td id="cellB">10</td>
+                        <td id="cellH">20</td>
+                        <td id="cellT">10</td>
+                        <td id="cellV">10</td>
+                        <td id="cellt">0</td> 
+                        <td id="cellTmax">15</td>
+                        <td id="cellCb">1.00</td>
+                        <td id="cellOHCs">1.00</td>
+                        <td id="cellb">200</td>
+                        <td id="cellH">40</td>
+                        <td id="cellHf">2.00</td>
+                        <td id="cellHfl">0.5</td>
+                        <td id="cellK">1.10</td>
+                        <td id="cellN">1.00</td>
+                        <td id="cellM">0.500</td>
+                        <td id="celll">1</td>
+                    </div>
+                    </tr>
+                </tbody>
+        </table>
+        </th>
+            <th> Ograniczenia metody: 
+                
+                <table>
+                <thead>
+                    <tr>
+                        <th>Współczynnik pełnotliwości $$0,5\leq C_{b} \leq 0,9$$</th>
+                        <th>Proporcja trymu do długości całkowitej statku $$ 0 \leq \frac{t}{L} \leq 0,005$$</th>
+                        <th>Proporcja głębokości akwenu do zanurzenia statku $$ 1,1 \leq \frac{h}{T} \leq 1,4$$</th>
+                    </tr>
+                </thead>
+                
+                <td id="cellCb2">0</td>
+                <td id="celltL2">0</td>
+                <td id="cellhT2">0</td>
+            </table>
+                
+            </th>
+            <th>Jednostka</th>
             <th>Wyniki</th>
+            
           </tr>
     </thead>
     <tbody>
         <tr>
-            <td class="opis">Ship’s Domain Depth - Metoda C.B. Barrasa na osiadanie statku, z ograniczeniem metody: $$0,5\leq C_{b} \leq 0,9; 0 \leq \frac{t}{L} \leq 0,005; 1,1 \leq \frac{h}{T} \leq 1,4;$$</td>
-            <td class="wzory">$$SD_{D} = n\times T_{max}+\frac{m\times C_{B}}{30}\times (\frac{B\times T}{b\times h-B\times T})^{\frac{2}{3}}\times V^{2.08}+k\times h_{f}$$</td>
+            <td class="opis">
+                <table>
+                <thead>
+                    <tr>
+                        <th>Zanurzenie statyczne $$n\cdot T_{max}$$</th>
+                        <th>Współczynnik osiadania $$\frac{m\cdot C_{B}}{30}\cdot (\frac{B\cdot T}{b\cdot h-B\cdot T})^{\frac{2}{3}}\cdot V^{2,08}$$</th>
+                        <th>Wpływ falowania $$k\cdot h_{f}$$</th>
+                    </tr>
+                </thead>
+                
+                <td id="nxTmax">0</td>
+                <td id="wOsi">0</td>
+                <td id="khf">0</td>
+            </table>
+        </td>
+            <td class="wzory">$$SD_{D} = n\cdot T_{max}+\frac{m\cdot C_{B}}{30}\cdot (\frac{B\cdot T}{b\cdot h-B\cdot T})^{\frac{2}{3}}\cdot V^{2,08}+k\cdot h_{f}$$</td>
+            
+            <td class="Jednostka">[m]</td>  
             <td class="result">
                 <div class="result-container" id="resultContainer-1">
-                    <p id="result-1">[Wynik]</p>
+                    <p id="result-1"></p>
                 </div>
             </td>
+            
         </tr>
         <tr>
-            <td class="opis">Ship’s Domain Depth - wykorzystując metodę uproszczoną C.B. Barrasa, do szacowania osiadania statku w akwenach płytkich, z ograniczeniem metody: $$1,1 \leq \frac{h}{T}\leq 1,2$$</td>
-            <td class="wzory">$$SD_{D} = n \times T_{max}+m\times (0.01\times C_{b}\times V^{2})+k \times h_{f}$$</td>
+            <td class="opis">
+            <table>
+            <thead>
+                <tr>
+                    <th>[-]</th>
+                    <th>$$m\cdot C_{B}\cdot (\frac{B\cdot T}{b\cdot h-B\cdot T})^{\frac{2}{3}}$$</th>
+                    <th>[-]</th>
+                </tr>
+            </thead>
+            
+            <td id="">0</td>
+            <td id="wOsi2">0</td>
+            <td id="">0</td>
+        </table>
+    </td>
+            <td class="wzory"> $$V_{ZD} = (\frac{30\cdot (SD_{D} - n \cdot T_{max}-k \cdot h_{f})}{m\cdot C_{b}\cdot (\frac{B \cdot T}{b \cdot h - B \cdot T})^{\frac{2}{3}}})^{\frac{25}{52}}$$</td>
+            
+
+            <td class="Jednostka">[kn]</td>
+            <td class="result">
+                <div class="result-container" id="resultContainerV-1">
+                    <p id="result-11"></p>
+                </div>
+            </td>
+            
+            
+        </tr>
+        <tr>
+            <td class="opis">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>$$ADT$$</th>
+                            <th>$$OHC_{R}$$</th>
+                            <th>$$\frac{R_{squat}}{2}=\frac{m\cdot C_{B}}{60}\cdot (\frac{B\cdot T}{b\cdot h-B\cdot T})^{\frac{2}{3}}\cdot V^{2,08}$$</th>
+                            
+                        </tr>
+                    </thead>
+                    
+                    <td id="cellCb2">0</td>
+                    <td id="">0</td>
+                    <td id="wOsi3">0</td>
+                </table></td>
+            <td class="wzory">$$SD_{H} = ADT + OHC_{R}-\frac{R_{squat}}{2} = ADT + OHC_{R} - \frac{m\cdot C_{B}}{60} \cdot(\frac{B \cdot T}{b \cdot h - B \cdot T})^{\frac{2}{3}}\cdot V^{2,08}$$</td>
+            
+
+            <td class="Jednostka">[m]</td>
+                <td class="result">
+                <div class="result-container" id="resultContainer-6">
+                    <p id="result-6"></p>
+                </div>
+            
+            
+            
+        </tr>
+        <tr>
+            <td class="opis">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>$$SD_{H}$$</th>
+                            <th>$$m\cdot C_{B}\cdot (\frac{B\cdot T}{b\cdot h-B\cdot T})^{\frac{2}{3}}$$</th>
+                            
+                        </tr>
+                    </thead>
+                    
+                    <td id="">0</td>
+                    <td id="wOsi4">0</td>
+                    
+                </table>
+                </td>
+            <td class="wzory">błąd - bez ostatniej potęgi $$V_{ZH} = (\frac{60\cdot (SD_{H} - ADT - OHC_{R})}{m\cdot C_{b}\cdot (\frac{B \cdot T}{b \cdot h - B \cdot T})^{\frac{2}{3}}})^{\frac{25}{52}}$$</td>
+            
+
+            <td class="Jednostka">[kn]</td>
+                <td class="result">
+                <div class="result-container" id="resultContainerV-6">
+                    <p id="result-16"></p>
+                </div>
+            </td>
+            
+            
+        </tr>
+        </tbody>
+        </table></div>
+        <!--------------------------------------------------------------->
+       
+        <div id="News" class="tabcontent">
+        <h2>Metoda Grzegorza Rutkowskiego z wzorami uproszczonymi C.B. Barrasa, do szacowania osiadania statku w akwenach płytkich.</h2>
+        <table> 
+            <tbody>
+                <thead>
+                    <tr>
+                        <th>
+                            <table id="valueTable">
+                                <thead>
+                                    <tr>
+                                        <th style="background-color: #ea5050b4;">L [m]</th>
+                                        <th style="background-color: #ea5050b4;">B [m]</th>
+                                        <th style="background-color: #ea5050b4;">H [m]</th>
+                                        <th style="background-color: #ea5050b4;">T [m]</th>
+                                        <th style="background-color: #ea5050b4;">v [w]</th>
+                                        <th style="background-color: #ea5050b4;">t [m]</th> 
+                                        <th style="background-color: #ea5050b4;">T<sub>max</sub> [m]</th>
+                                        <th style="background-color: #ea5050b4;">C<sub>b</sub> [-]</th>
+                                        <th style="background-color: #ea5050b4;">OHC<sub>r</sub> [m]</th>
+                                        <th style="background-color:#4658cc">b [m]</th>
+                                        <th style="background-color:#4658cc">h [m]</th>
+                                        <th style="background-color:#4658cc">h<sub>f</sub> [m]</th>
+                                        <th style="background-color:#4658cc">λ<sub>fl</sub> [m]</th>
+                                        <th style="background-color: #60b560">k [-]</th>
+                                        <th style="background-color: #60b560">n [-]</th>
+                                        <th style="background-color: #60b560">m [-]</th>
+                                        <th style="background-color: #60b560">l [-]</th>
+                                        
+                                        
+                                        
+                                        
+                                    
+                                    </tr>
+                                </thead>
+                        
+                                <tbody id="valueTableBody">
+                                    <tr>
+                                        <td id="cellL2">100</td>
+                                        <td id="cellB2">10</td>
+                                        <td id="cellH2">20</td>
+                                        <td id="cellT2">10</td>
+
+                                        <td id="cellv2">10</td>
+                                        <td id="cellt2">0</td> 
+                                        <td id="cellTmax2">15</td>
+                                        <td id="cellCb4">1.00</td>
+                                        <td id="cellOHCs2">1.00</td>
+
+                                        <td id="cellb2">200</td>
+                                        <td id="cellh2">40</td>
+                                        <td id="cellHf2">2.00</td>
+                                        <td id="cellHfl2">0.5</td>
+
+                                        <td id="cellK2">1.10</td>
+                                        <td id="cellN2">1.00</td>
+                                        <td id="cellM2">0.500</td>
+                                        <td id="celll2">1</td>
+                                    </div>
+                                    </tr>
+                                </tbody>
+                        </table>
+                    </th>
+                        <th>
+                            
+                            <table>
+                            <thead>
+                                <tr>Ograniczenia metody: 
+                                    
+                                    <th>Proporcja głębokości akwenu do zanurzenia statycznego $$1,1 \leq \frac{h}{T}\leq 1,2$$</th>
+                                    
+                                </tr>
+                            </thead>
+                            
+                    
+                            <td id="hT2">0</td>
+                            
+                        </table>
+                            </th>
+                        <th>Jednostka</th>
+                        <th>Wyniki</th>
+                    </tr>
+                </thead>
+        <tr>
+           
+            <td class="opis">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Zanurzenie statyczne $$n \cdot T_{max}$$</th>
+                            <th>Współczynnik osiadania $$m\cdot (0.01\cdot C_{b}\cdot V^{2})$$</th>
+                            <th>Wpływ falowania $$ k\cdot h_{f}$$</th>
+                        </tr>
+                    </thead>
+                    
+                    <td id="nxTmax2">0</td>
+                    <td id="wOsi5">0</td>
+                    <td id="khf3">0</td>
+                </table>
+            </td>
+            <td class="wzory">$$SD_{D} = n \cdot T_{max}+m\cdot (0.01\cdot C_{b}\cdot V^{2})+k \cdot h_{f}$$</td>
+            
+            <td class="Jednostka">[m]</td>
             <td class="result">
                 <div class="result-container" id="resultContainer-2">
-                    <p id="result-2">[Wynik]</p>
+                    <p id="result-2"></p>
                 </div>
             </td>
         </tr>
         <tr>
-            <td class="opis">Ship’s Domain Depth - wykorzystując metodę uproszczoną C.B. Barrasa, do szacowania osiadania statku w wąskim kanale, z ograniczeniem metody: $$0,06\leq\frac{B\times T}{b\times h}\leq 0,3$$</td>
-            <td class="wzory">$$SD_{D} = n \times T_{max}+m\times (0.02\times C_{b}\times V^{2})+k \times h_{f}$$</td>
+            <td class="opis">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>[-]</th>
+                            <th>$$0.01\cdot m\cdot C_{b}$$</th>
+                            <th>[-]</th>
+                        </tr>
+                    </thead>
+                    
+                    <td id="">0</td>
+                    <td id="wOsi8">0</td>
+                    <td id="">0</td>
+                </table>
+            </td>
+            <td class="wzory"> $$V_{ZD} = \sqrt{\frac{SD_{D}-n \cdot T_{max}-k\cdot h{f}}{0,01 \cdot m \cdot C_{B}}}$$</td>
+            
+            <td class="Jednostka">[kn]</td>
+
+            <td class="result">
+                <div class="result-container" id="resultContainerV-2">
+                    <p id="result-12"></p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="opis">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>[-]</th>
+                            <th>Współczynnik osiadania $$0.005\cdot m\cdot C_{b}\cdot V^{2}$$</th>
+                            <th>[-]</th>
+                        </tr>
+                    </thead>
+                    
+                    <td id="">0</td>
+                    <td id="wOsi6">0</td>
+                    <td id="">0</td>
+                </table>
+            </td> 
+            <td class="wzory">$$SD_{H} = Air Draft + OHC_{R} - 0,005 \cdot m \cdot C_{B} \cdot V^{2}$$</td>
+            <td class="Jednostka">[m]</td>
+            <td class="result">
+                <div class="result-container" id="resultContainer-7">
+                    <p id="result-7"></p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="opis"><table>
+                    <thead>
+                        <tr>
+                            <th>[-]</th>
+                            <th>$$0.005\cdot m\cdot C_{b}$$</th>
+                            <th>[-]</th>
+                        </tr>
+                    </thead>
+                    
+                    <td id="">0</td>
+                    <td id="wOsi7">0</td>
+                    <td id="">0</td>
+                </table>
+            </td>
+                <td class="wzory">$$V_{ZH} = \sqrt{\frac{SD_{H}-ADT-OHC_{R}}{0,005 \cdot m \cdot C_{B}}}$$</td>
+            <td class="Jednostka">[kn]</td>
+            <td class="result">
+                <div class="result-container" id="resultContainerV-7">
+                    <p id="result-17"></p>
+                </div>
+            </td>
+        </tr>
+            </tbody>
+        </table></div>
+        
+        <!--------------------------------------------------------->
+        
+
+        <div id="Contact" class="tabcontent">
+  
+            
+          
+        <h2>Metoda Grzegorza Rutkowskiego z wzorami uproszczoną C.B. Barrasa, do szacowania osiadania statku w wąskim kanale</h2>
+        <table>
+            <tbody>
+                <thead>
+                    <tr>
+                        <th>
+                            <table id="valueTable">
+                                <thead>
+                                    <tr>
+                                        <th style="background-color: #ea5050b4;">L [m]</th>
+                                        <th style="background-color: #ea5050b4;">B [m]</th>
+                                        <th style="background-color: #ea5050b4;">H [m]</th>
+                                        <th style="background-color: #ea5050b4;">T [m]</th>
+                                        <th style="background-color: #ea5050b4;">v [w]</th>
+                                        <th style="background-color: #ea5050b4;">t [m]</th> 
+                                        <th style="background-color: #ea5050b4;">T<sub>max</sub> [m]</th>
+                                        <th style="background-color: #ea5050b4;">C<sub>b</sub> [-]</th>
+                                        <th style="background-color: #ea5050b4;">OHC<sub>r</sub> [m]</th>
+                                        <th style="background-color:#4658cc">b [m]</th>
+                                        <th style="background-color:#4658cc">h [m]</th>
+                                        <th style="background-color:#4658cc">h<sub>f</sub> [m]</th>
+                                        <th style="background-color:#4658cc">λ<sub>fl</sub> [m]</th>
+                                        <th style="background-color: #60b560">k [-]</th>
+                                        <th style="background-color: #60b560">n [-]</th>
+                                        <th style="background-color: #60b560">m [-]</th>
+                                        <th style="background-color: #60b560">l [-]</th>
+                                        
+                                        
+                                        
+                                        
+                                    
+                                    </tr>
+                                </thead>
+                        
+                                <tbody id="valueTableBody">
+                                    <tr>
+                                        <td id="cellL3">100</td>
+                                        <td id="cellB3">10</td>
+                                        <td id="cellH3">20</td>
+                                        <td id="cellT3">10</td>
+
+                                        <td id="cellv3">10</td>
+                                        <td id="cellt3">0</td> 
+                                        <td id="cellTmax3">15</td>
+                                        <td id="cellCb5">1.00</td>
+                                        <td id="cellOHCs3">1.00</td>
+
+                                        <td id="cellb3">200</td>
+                                        <td id="cellh3">40</td>
+                                        <td id="cellHf3">2.00</td>
+                                        <td id="cellHfl3">0.5</td>
+
+                                        <td id="cellK3">1.10</td>
+                                        <td id="cellN3">1.00</td>
+                                        <td id="cellM3">0.500</td>
+                                        <td id="celll3">1</td>
+                                    </div>
+                                    </tr>
+                                </tbody>
+                        </table>
+                    </th>
+                        <th>
+                             <table>
+                            <thead>
+                                <tr>Ograniczenia metody:
+                                    
+                                    <th> $$0,06\leq\frac{B\cdot T}{b\cdot h}\leq 0,3$$
+
+                                    </th>
+                                    
+                                </tr>
+                            </thead>
+                            
+                    
+                            <td id="BTbh2">0</td>
+                            
+                        </table></th>
+                        <th>Jednostka</th>
+                        <th>Wyniki</th>
+                    </tr>
+                </thead>
+                
+        <tr>
+            <td class="opis">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Zanurzenie statyczne $$n \cdot T_{max}$$</th>
+                            <th>Współczynnik osiadania $$m\cdot (0.02\cdot C_{b}\cdot V^{2})$$</th>
+                            <th>Wpływ falowania $$ k\cdot h_{f}$$</th>
+                        </tr>
+                    </thead>
+                    
+                    <td id="nxTmax3">0</td>
+                    <td id="wOsi9">0</td>
+                    <td id="khf2">0</td>
+                </table>
+            </td>
+            
+            <td class="wzory">$$SD_{D} = n \cdot T_{max}+m\cdot (0.02\cdot C_{b}\cdot V^{2})+k \cdot h_{f}$$</td>
+            <td class="Jednostka">[m]</td>
             <td class="result">
                 <div class="result-container" id="resultContainer-3">
-                    <p id="result-3">[Wynik]</p>
+                    <p id="result-3"></p>
                 </div>
             </td>
         </tr>
         <tr>
-            <td class="opis">Wykorzystując metodę N.E. Eryuzlu i R. Haussera do szacowania osiadania statku w ruchu, z ograniczeniem metody:$$ C_{b}\geq 0,7;1,08 \leq \frac{h}{T}\leq 2,78$$</td>
-            <td class="wzory">$$SD_{D} = n \times T_{max} + m \times (0,113 \times B \times (\frac{h}{T})^{-0.27}\times (\frac{0,514 \times V}{\sqrt{g \times h}})^{1.8}) + k \times h_{f}$$</td>
+            <td class="opis">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>$$0.02\cdot m \cdot C_{B}$$</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    
+                    <td id="">0</td>
+                    <td id="wOsi10">0</td>
+                    <td id="">0</td>
+                </table>
+            </td>
+            <td class="wzory">$$V_{ZD} = \sqrt{\frac{SD_{D}-n \cdot T_{max}-k\cdot h{f}}{0,02 \cdot m \cdot C_{B}}}$$</td>
+            <td class="Jednostka">[kn]</td>
+            <td class="result">
+                <div class="result-container" id="resultContainerV-3">
+                    <p id="result-13"></p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="opis">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>$$m\cdot (0.01\cdot C_{b}\cdot V^{2})$$</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    
+                    <td id="">0</td>
+                    <td id="wOsi11">0</td>
+                    <td id="">0</td>
+                </table>
+            </td>
+            <td class="wzory">$$SD_{H} = Air Draft + OHC_{R} - 0,01 \cdot m \cdot C_{B} \cdot V^{2}$$</td>
+            <td class="Jednostka">[m]</td>
+            <td class="result">
+                <div class="result-container" id="resultContainer-8">
+                    <p id="result-8"></p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="opis">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>$$0.01\cdot m \cdot C_{B}$$</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    
+                    <td id="">0</td>
+                    <td id="wOsi12">0</td>
+                    <td id="">0</td>
+                </table>
+            </td>
+            <td class="wzory">$$V_{ZH} = \sqrt{\frac{SD_{H}-ADT-OHC_{R}}{0,01 \cdot m \cdot C_{B}}}$$</td>
+            <td class="Jednostka">[kn]</td>
+            <td class="result">
+                <div class="result-container" id="resultContainerV-8">
+                    <p id="result-18"></p>
+                </div>
+            </td>
+        </tr>
+            </tbody>
+        </table></div>
+        
+        <!---------------------------------------------------------------------->
+
+        <div id="About" class="tabcontent">
+  
+            
+          
+        <h2>Metoda Grzegorza Rutkowskiego i wzory N.E. Eryuzlu i R. Haussera do szacowania osiadania statku w ruchu</h2>
+        <table>
+            <tbody>
+                <thead>
+                    <tr>
+                        <th>
+                            <table id="valueTable">
+                                <thead>
+                                    <tr>
+                                        <th style="background-color: #ea5050b4;">L [m]</th>
+                                        <th style="background-color: #ea5050b4;">B [m]</th>
+                                        <th style="background-color: #ea5050b4;">H [m]</th>
+                                        <th style="background-color: #ea5050b4;">T [m]</th>
+                                        <th style="background-color: #ea5050b4;">v [w]</th>
+                                        <th style="background-color: #ea5050b4;">t [m]</th> 
+                                        <th style="background-color: #ea5050b4;">T<sub>max</sub> [m]</th>
+                                        <th style="background-color: #ea5050b4;">C<sub>b</sub> [-]</th>
+                                        <th style="background-color: #ea5050b4;">OHC<sub>r</sub> [m]</th>
+                                        <th style="background-color:#4658cc">b [m]</th>
+                                        <th style="background-color:#4658cc">h [m]</th>
+                                        <th style="background-color:#4658cc">h<sub>f</sub> [m]</th>
+                                        <th style="background-color:#4658cc">λ<sub>fl</sub> [m]</th>
+                                        <th style="background-color: #60b560">k [-]</th>
+                                        <th style="background-color: #60b560">n [-]</th>
+                                        <th style="background-color: #60b560">m [-]</th>
+                                        <th style="background-color: #60b560">l [-]</th>
+                                        
+                                        
+                                        
+                                        
+                                    
+                                    </tr>
+                                </thead>
+                        
+                                <tbody id="valueTableBody">
+                                    <tr>
+                                        <td id="cellL4">100</td>
+                                        <td id="cellB4">10</td>
+                                        <td id="cellH4">20</td>
+                                        <td id="cellT4">10</td>
+
+                                        <td id="cellv4">10</td>
+                                        <td id="cellt4">0</td> 
+                                        <td id="cellTmax4">15</td>
+                                        <td id="cellCb6">1.00</td>
+                                        <td id="cellOHCs4">1.00</td>
+
+                                        <td id="cellb4">200</td>
+                                        <td id="cellh4">40</td>
+                                        <td id="cellHf4">2.00</td>
+                                        <td id="cellHfl4">0.500</td>
+
+                                        <td id="cellK4">1.10</td>
+                                        <td id="cellN4">1.00</td>
+                                        <td id="cellM4">0.500</td>
+                                        <td id="celll4">1</td>
+                                    </div>
+                                    </tr>
+                                </tbody>
+                        </table>
+                    </th>
+                        <th>
+                             Ograniczenia metody:
+                            <table>
+                            <thead>
+                                <tr>
+                                    
+                                    <th> Współczynnik pełnotliwości kadłuba
+                                        $$ C_{b}\geq 0,7$$ 
+
+                                    </th>
+                                    <th>Proporcja głębokości akwenu do zanurzenia statycznego
+                                        $$1,08 \leq \frac{h}{T}\leq 2,78$$
+                                    </th>
+                                    
+                                </tr>
+                            </thead>
+                            
+                    
+                            <td id="cellCb3">0</td>
+                            <td id="hT3">0</td>
+                            
+                        </table>
+                    </th>
+                        <th>Jednostka</th>
+                        <th>Wyniki</th>
+                    </tr>
+                </thead>
+        <tr>
+            <td class="opis">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Zanurzenie statyczne $$n \cdot T_{max}$$</th>
+                            <th>Współczynnik osiadania $$m\cdot (0,113\cdot B\cdot (\frac{h}{T})^{-0,27}\cdot (\frac{0,514\cdot V}{\sqrt{g \cdot h}})^{1,8})$$</th>
+                            <th>Wpływ falowania $$ k\cdot h_{f}$$</th>
+                        </tr>
+                    </thead>
+                    
+                    <td id="nxTmax4">0</td>
+                    <td id="wOsi13">0</td>
+                    <td id="khf4">0</td>
+                </table>
+            </td>
+            <td class="wzory">$$SD_{D} = n \cdot T_{max} + m \cdot (0,113 \cdot B \cdot (\frac{h}{T})^{-0.27}\cdot (\frac{0,514 \cdot V}{\sqrt{g \cdot h}})^{1.8}) + k \cdot h_{f}$$</td>
+            <td class="Jednostka">[m]</td>
             <td class="result">
                 <div class="result-container" id="resultContainer-4">
-                    <p id="result-4">[Wynik]</p>
+                    <p id="result-4"></p>
                 </div>
             </td>
         </tr>
         <tr>
-            <td class="opis">Wykorzystując metodę G.I. Soukhomel’a i V.M. Zass’a do oszacowania osiadania statku w ruchu na wodach płytkich, lecz nieograniczonych pod względem szerokości, z ograniczeniem metody: $$3,5 \leq \frac{L}{B}\leq 9$$</td>
-            <td class="wzory">$$SD_{D} = n \times T_{max} + m \times l \times 0,049047542 \times V^{2}\times \sqrt{\frac{T}{h}}\times (\frac{L}{B})^{-1,11} + k \times h_{f}$$</td>
+            <td class="opis">
+                
+            </td>
+            <td class="wzory">$$V_{ZD}= 6,533 \sqrt{g \cdot h} \cdot (\frac{h}{T})^{0,15} \cdot (\frac{SD_{D}-n \cdot T_{max}-k\cdot h_{f}}{m\cdot B})^{\frac{5}{9}}$$</td>
+            <td class="Jednostka">[kn]</td>
             <td class="result">
-                <div class="result-container" id="resultContainer-5">
-                    <p id="result-5">[Wynik]</p>
+                <div class="result-container" id="resultContainerV-4">
+                    <p id="result-14"></p>
                 </div>
             </td>
         </tr>
-        <tr style="display: none;">
-            <td class="opis">Magazzini Alimentari Riuniti</td>
-            <td class="wzory">Giovanni Rovelli</td>
+        <tr>
+            <td class="opis">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>$$\frac{m}{2}\cdot (0,113\cdot B\cdot (\frac{h}{T})^{-0,27}\cdot (\frac{0,514\cdot V}{\sqrt{g \cdot h}})^{1,8})$$</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    
+                    <td id="">[-]</td>
+                    <td id="wOsi14">0</td>
+                    <td id="">[-]</td>
+                </table>
+            </td>
+            <td class="wzory">$$SD_{H} = ADT + OHC_{R} - \frac{m}{2}\cdot (0,113\cdot B\cdot (\frac{h}{T})^{-0,27}\cdot (\frac{0,514\cdot V}{\sqrt{g \cdot h}})^{1,8})$$</td>
+            <td class="Jednostka">[m]</td>
             <td class="result">
-                <div class="result-container" id="resultContainer-6">
-                    <p id="result-6">[Wynik]</p>
+                <div class="result-container" id="resultContainer-9">
+                    <p id="result-9"></p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="opis"></td>
+            <td class="wzory">$$V_{ZH} = 13,066\sqrt{g \cdot h} \cdot (\frac{h}{T})^{0,15} \cdot (\frac{SD_{H}-ADT -OHC_{R}}{m\cdot B})^{\frac{5}{9}}$$</td>
+            <td class="Jednostka">[kn]</td>
+            <td class="result">
+                <div class="result-container" id="resultContainerV-9">
+                    <p id="result-19"></p>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table></div>
+    
+        <!-------------------------------------------------------->
+
+        <div id="Metoda5" class="tabcontent">
+    
+            
+          
+        <h2>Metoda Grzegorza Rutkowskiego z wzorami G.I. Soukhomel’a i V.M. Zass’a do oszacowania osiadania statku w ruchu na wodach płytkich, lecz nieograniczonych pod względem szerokości</h2>
+        <table>
+            <tbody>
+                <thead>
+                    <tr>
+                        <th>
+                            <table id="valueTable">
+                                <thead>
+                                    <tr>
+                                        <th style="background-color: #ea5050b4;">L [m]</th>
+                                        <th style="background-color: #ea5050b4;">B [m]</th>
+                                        <th style="background-color: #ea5050b4;">H [m]</th>
+                                        <th style="background-color: #ea5050b4;">T [m]</th>
+                                        <th style="background-color: #ea5050b4;">v [w]</th>
+                                        <th style="background-color: #ea5050b4;">t [m]</th> 
+                                        <th style="background-color: #ea5050b4;">T<sub>max</sub> [m]</th>
+                                        <th style="background-color: #ea5050b4;">C<sub>b</sub> [-]</th>
+                                        <th style="background-color: #ea5050b4;">OHC<sub>r</sub> [m]</th>
+                                        <th style="background-color:#4658cc">b [m]</th>
+                                        <th style="background-color:#4658cc">h [m]</th>
+                                        <th style="background-color:#4658cc">h<sub>f</sub> [m]</th>
+                                        <th style="background-color:#4658cc">λ<sub>fl</sub> [m]</th>
+                                        <th style="background-color: #60b560">k [-]</th>
+                                        <th style="background-color: #60b560">n [-]</th>
+                                        <th style="background-color: #60b560">m [-]</th>
+                                        <th style="background-color: #60b560">l [-]</th>
+                                        
+                                        
+                                        
+                                        
+                                    
+                                    </tr>
+                                </thead>
+                        
+                                <tbody id="valueTableBody">
+                                    <tr>
+                                        <td id="cellL5">100</td>
+                                        <td id="cellB5">10</td>
+                                        <td id="cellH5">20</td>
+                                        <td id="cellT5">10</td>
+
+                                        <td id="cellv5">10</td>
+                                        <td id="cellt5">0</td> 
+                                        <td id="cellTmax5">15</td>
+                                        <td id="cellCb7">1.00</td>
+                                        <td id="cellOHCs5">1.00</td>
+
+                                        <td id="cellb5">200</td>
+                                        <td id="cellh5">40</td>
+                                        <td id="cellHf5">2.00</td>
+                                        <td id="cellHfl5">0.5</td>
+
+                                        <td id="cellK5">1.10</td>
+                                        <td id="cellN5">1.0</td>
+                                        <td id="cellM5">0.5</td>
+                                        <td id="celll5">1</td>
+                                    </div>
+                                    </tr>
+                                </tbody>
+                        </table>
+                    </th>
+                        <th>Ograniczenia metody:
+                            <table>
+                            <thead>
+                                
+                                    <tr>
+                                    <th> Proporcja długości całkowitej do szerokości całkowitej
+                                        $$3,5 \leq \frac{L}{B}\leq 9$$
+
+                                    </th>
+                                
+                                </tr>
+                            </thead>
+                                
+                                    <td id="LB">0</td>
+                            
+                        </table></th>
+                        <th>Jednostka</th>
+                        <th>Wyniki</th>
+                    </tr>
+                </thead>
+        <tr>
+            <td class="opis"><table>
+                <thead>
+                    <tr>
+                        <th>Zanurzenie statyczne $$n \cdot T_{max}$$</th>
+                        <th>Współczynnik osiadania $$m \cdot l \cdot 0,049047542 \cdot V^{2}\cdot \sqrt{\frac{T}{h}}\cdot (\frac{L}{B})^{-1,11}$$</th>
+                        <th>Wpływ falowania $$ k\cdot h_{f}$$</th>
+                    </tr>
+                </thead>
+                
+                <td id="nxTmax5">0</td>
+                <td id="wOsi15">0</td>
+                <td id="khf5">0</td>
+
+            </table></td>
+            <td class="wzory">$$SD_{D} = n \cdot T_{max} + m \cdot l \cdot 0,049047542 \cdot V^{2}\cdot \sqrt{\frac{T}{h}}\cdot (\frac{L}{B})^{-1,11} + k \cdot h_{f}$$</td>
+            <td class="Jednostka">[m]</td>
+            <td class="result">
+                <div class="result-container" id="resultContainer-5">
+                    <p id="result-5"></p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="opis"></td>
+            <td class="wzory">$$V_{ZD}=4,5154 \cdot \sqrt{\frac{SD_{D}-n\cdot T_{max}-k\cdot h_{f}}{m\cdot l \cdot \sqrt{\frac{T}{h}\cdot (\frac{L}{B})^{-1,11}}}}$$</td>
+            <td class="Jednostka">[kn]</td>
+            <td class="result">
+                <div class="result-container" id="resultContainerV-5">
+                    <p id="result-15"></p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="opis"><table>
+                <thead>
+                    <tr>
+                        <th>[-]</th>
+                        <th>$$\frac{m}{2} \cdot l \cdot 0,049047542 \cdot V^{2}\cdot \sqrt{\frac{T}{h}}\cdot (\frac{L}{B})^{-1,11}$$</th>
+                        <th>[-]</th>
+                    </tr>
+                </thead>
+                
+                <td id="">0</td>
+                <td id="wOsi16">0</td>
+                <td id="">0</td>
+                
+            </table></td>
+            <td class="wzory">$$SD_{H}= Air Draft + OHC_{R} - \frac{m}{2} \cdot l \cdot 0,049047542 \cdot V^{2}\cdot \sqrt{\frac{T}{h}}\cdot (\frac{L}{B})^{-1,11} $$</td>
+            <td class="Jednostka">[m]</td>
+            <td class="result">
+                <div class="result-container" id="resultContainer-10">
+                    <p id="result-10"></p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="opis"></td>
+            <td class="wzory">$$V_{ZH}=6,3876 \cdot \sqrt{\frac{SD_{H}-Air Draft-OHC_{R}}{m\cdot l \cdot  \sqrt{\frac{T}{h}}\cdot (\frac{L}{B})^{-1,11}}}$$</td>
+            <td class="Jednostka">[kn]</td>
+            <td class="result">
+                <div class="result-container" id="resultContainerV-10">
+                    <p id="result-20"></p>
                 </div>
             </td>
         </tr>
     </tbody>
+</table></div>
+
+<div id="Metoda6" class="tabcontent">
+    <h2>Wyliczenia modeli domen 2d a) T. Coldwell'a b) M. Hansena c) Z. Pietrzykowskiego dla wąskich torów wodnych i akwenów otwartych.</h2>
+    <table>
+        <tbody>
+            <thead>
+                <tr>
+                    <th> <img src="/Styles/images/parameters/przykładydomen.png">
+                    </th>
+                    <th>
+                        <table id="valueTable">
+                            <thead>
+                                <tr>
+                                    <th style="background-color: #ea5050b4;">L [m]</th>
+                                    <th style="background-color: #ea5050b4;">B [m]</th>
+                                    <th style="background-color: #ea5050b4;">H [m]</th>
+                                    <th style="background-color: #ea5050b4;">T [m]</th>
+                                    <th style="background-color: #ea5050b4;">v [w]</th>
+                                    <th style="background-color: #ea5050b4;">t [m]</th> 
+                                    <th style="background-color: #ea5050b4;">T<sub>max</sub> [m]</th>
+                                    <th style="background-color: #ea5050b4;">C<sub>b</sub> [-]</th>
+                                    <th style="background-color: #ea5050b4;">OHC<sub>r</sub> [m]</th>
+                                    <th style="background-color:#4658cc">b [m]</th>
+                                    <th style="background-color:#4658cc">h [m]</th>
+                                    <th style="background-color:#4658cc">h<sub>f</sub> [m]</th>
+                                    <th style="background-color:#4658cc">λ<sub>fl</sub> [m]</th>
+                                    <th style="background-color: #60b560">k [-]</th>
+                                    <th style="background-color: #60b560">n [-]</th>
+                                    <th style="background-color: #60b560">m [-]</th>
+                                    <th style="background-color: #60b560">l [-]</th>
+                                    
+                                    
+                                    
+                                    
+                                
+                                </tr>
+                            </thead>
+                    
+                            <tbody id="valueTableBody">
+                                <tr>
+                                    <td id="cellL6">100</td>
+                                    <td id="cellB6">10</td>
+                                    <td id="cellH6">20</td>
+                                    <td id="cellT6">10</td>
+
+                                    <td id="cellv6">10</td>
+                                    <td id="cellt6">0</td> 
+                                    <td id="cellTmax6">15</td>
+                                    <td id="cellCb8">1.00</td>
+                                    <td id="cellOHCs6">1.00</td>
+
+                                    <td id="cellb6">200</td>
+                                    <td id="cellh6">40</td>
+                                    <td id="cellHf6">2.00</td>
+                                    <td id="cellHfl6">0.5</td>
+
+                                    <td id="cellK6">1.10</td>
+                                    <td id="cellN6">1.0</td>
+                                    <td id="cellM6">0.5</td>
+                                    <td id="celll6">1</td>
+                                </div>
+                                </tr>
+                            </tbody>
+                    </table>
+
+    
+    
+                </th>
+                
+                <th>Jednostka</th>
+                <th>Wyniki</th>
+            </tr>
+        </thead>
+<tr>
+    <td class="opis"></td>
+    <td class="wzory"></td>
+    <td class="Jednostka">[m]</td>
+    <td class="result">
+        <div class="result-container" id="resultContainer-5">
+            <p id="Domena21"></p>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td class="opis"></td>
+    <td class="wzory"></td>
+    <td class="Jednostka">[kn]</td>
+    <td class="result">
+        <div class="result-container" id="resultContainerV-5">
+            <p id="Domena22"></p>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td class="opis"></td>
+    <td class="wzory"></td>
+    <td class="Jednostka">[m]</td>
+    <td class="result">
+        <div class="result-container" id="resultContainer-10">
+            <p id="Domena23"></p>
+        </div>
+    </td>
+</tr>
+
+</tbody>
 </table>
+</div>
 
 
     <br>
     <footer style="color: aliceblue;">&copy; Copyright 2024 Pilawa Jakub</footer>
+    
+    
+    
+    
     <div class="formula-container" style="width: 500px" hidden>
 
         <select id="formulaSelect" onchange="updateFormulaInfo()">
@@ -389,9 +1301,22 @@
 
         </p>
     </div>
+    <!-------------------------------- UKRYTA TABELA, ŻEBY NIE PSUŁA JS------------------------------------>
+    <table hidden>
+
+        <th style="background-color: blueviolet;">$$\frac{t}{L}$$ [-]</th>
+        <th style="background-color: blueviolet;">$$\frac{h}{T}$$ [-]</th>
+        <th style="background-color: blueviolet;">$$\frac{B \cdot T}{b \cdot h}$$ [-]</th>
     
+        <td id="cellTL">0</td>
+        <td id="cellHT">0</td>
+        <td id="cellBTbh">0</td>
+        </table>
 </body>
 
-
 </html>
+
+<!--Jednostki, Wysokości, indeksy, paramtry coldwella, parametry hansen, pietrzykowskiego, wysokość i szybkość, prezentacja domeny z Ecdis-->
+<!--Dodać rsquat, adt, ohcr do menu informacyjnego-->
+<!---->
 
