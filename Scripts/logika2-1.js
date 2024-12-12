@@ -292,7 +292,7 @@ function calculateAllSD(){
   const num8 = parseFloat(document.getElementById('num8').value); //h
 
   const num9 = parseFloat(document.getElementById('num9').value); //v
-  const num10 = parseFloat(document.getElementById('num10').value); //10
+  const num10 = parseFloat(document.getElementById('num10').value); //k
   const num11 = parseFloat(document.getElementById('num11').value); //hfl
   const num12 = parseFloat(document.getElementById('num12').value); //l
 
@@ -302,6 +302,43 @@ function calculateAllSD(){
   const num16 = parseFloat(document.getElementById('num16').value); //Air draft, H
 
   const num17 = parseFloat(document.getElementById('num17').value); // OHCs
+  const num18 = parseFloat(document.getElementById('num18').value); // CVC
+  const num19 = parseFloat(document.getElementById('num19').value); // SDD
+  const num20 = parseFloat(document.getElementById('num20').value); // SDH
+  
+
+  if (
+    !(num1 >= 0 && num2 >= 0 && num3 >= 0 && num4 >= 0 && 
+      num5 >= 0 && num6 >= 0 && num7 >= 0 && num8 >= 0 &&
+      num9 >= 0 && num10 >= 0 && num11 >= 0 && num12 >= 0 && 
+      num13 >= 0 && num14 >= 0 && num15 >= 0 && num16 >= 0 && 
+      num17 >= 0 && num19 >= 0 && num20 >= 0)
+  ) {
+    alert("Parametry muszą być większe lub równe 0. Sprawdź wprowadzone dane.");
+    return; // Przerywamy działanie funkcji
+  }
+
+  // Walidacja warunku T > Tmax > h
+  if (!(num6 <= num2 && num2 < num8)) {
+    alert("Warunek T <= Tmax < h nie został spełniony! Sprawdź wprowadzone wartości.");
+    return; // Przerywamy działanie funkcji
+  }
+  if (!(num4 <= 1)) {
+    alert("Warunek CB >= 1 nie został spełniony! Sprawdź wprowadzone wartości.");
+    return;
+  }
+  if (!(num1 <= 10)) {
+    alert("Wartość n jest zbyt wysoka(n > 10)! Sprawdź wprowadzone wartości.");
+    return;
+  }
+  if (!(num10 <= 1.5)) {
+    alert("Warunek k <= 1.5 nie został spełniony! Sprawdź wprowadzone wartości.");
+    return;
+  }
+  if (!(num3 <= 1.25)) {
+    alert("Warunek m >= 1.25 nie został spełniony! Sprawdź wprowadzone wartości.");
+    return;
+  }
 
 
 var ulamek1 = ((parseFloat(num5) * parseFloat(num6)) /
@@ -331,8 +368,32 @@ var results = [1,
       
   
   for (let i = 1; i < 11; i++)
-      document.getElementById(`result-${i}`).innerHTML = `${results[i].toFixed(4)}`
+      document.getElementById(`result-${i}`).innerHTML = `${results[i].toFixed(2)}`
   
+  const resultSDD1V0 =  (parseFloat(num1) * parseFloat(num2)) +
+  (parseFloat(num3) * parseFloat(num4) / 30) * ulamek1 ** (2.0 / 3.0) * 0 ** (2.08) + num10 * num11;
+
+  const resultSDD1V5 =  (parseFloat(num1) * parseFloat(num2)) +
+  (parseFloat(num3) * parseFloat(num4) / 30) * ulamek1 ** (2.0 / 3.0) * 5 ** (2.08) + num10 * num11;
+
+
+  const resultSDD1V20 =  (parseFloat(num1) * parseFloat(num2)) +
+  (parseFloat(num3) * parseFloat(num4) / 30) * ulamek1 ** (2.0 / 3.0) * 20 ** (2.08) + num10 * num11;
+  
+  document.getElementById("result-21").innerText = resultSDD1V0.toFixed(2);
+  document.getElementById("result-22").innerText = resultSDD1V5.toFixed(2);
+  document.getElementById("result-23").innerText = resultSDD1V20.toFixed(2);
+  
+  const resultSDH1V0 = (num16 + num17) - (num3 * num4 / 60) * ulamek1 ** (2.0 / 3.0) * 0 ** (2.08)
+  const resultSDH1V5 = (num16 + num17) - (num3 * num4 / 60) * ulamek1 ** (2.0 / 3.0) * 5 ** (2.08)
+  const resultSDH1V20 = (num16 + num17) - (num3 * num4 / 60) * ulamek1 ** (2.0 / 3.0) * 20 ** (2.08)
+
+
+
+  document.getElementById("result-24").innerText = resultSDH1V0.toFixed(2);
+  document.getElementById("result-25").innerText = resultSDH1V5.toFixed(2);
+  document.getElementById("result-26").innerText = resultSDH1V20.toFixed(2);
+
 }
 function calculateTest (){
 
@@ -358,10 +419,91 @@ function calculateAllVZ(){
   const num14 = parseFloat(document.getElementById('num14').value); //t
   const num15 = parseFloat(document.getElementById('num15').value); //lambda fl
   const num16 = parseFloat(document.getElementById('num16').value); //Air draft, H
+  
   const num17 = parseFloat(document.getElementById('num17').value); // OHCs
+  const num18 = parseFloat(document.getElementById('num18').value); // CVC
+  const num19 = parseFloat(document.getElementById('num19').value); // SDD
+  const num20 = parseFloat(document.getElementById('num20').value); // SDH
+
+    // Walidacja warunków
+let war = num1 * num2 + num10 * num11;
+    if (
+      !(num1 >= 0 && num2 >= 0 && num3 >= 0 && num4 >= 0 && 
+        num5 >= 0 && num6 >= 0 && num7 >= 0 && num8 >= 0 &&
+        num9 >= 0 && num10 >= 0 && num11 >= 0 && num12 >= 0 && 
+        num13 >= 0 && num14 >= 0 && num15 >= 0 && num16 >= 0 && 
+        num17 >= 0 && num19 >= 0 && num20 >= 0)
+    ) {
+      alert("Parametry muszą być większe lub równe 0. Sprawdź wprowadzone dane.");
+      return; // Przerywamy działanie funkcji
+    }
+
+    if (!(num6 <= num2)) {
+      alert("Warunek T <= Tmax nie został spełniony! Sprawdź wprowadzone wartości.");
+      return;
+    }
+  
+    if (!(num2 < num8)) {
+      alert("Warunek Tmax < h nie został spełniony! Sprawdź wprowadzone wartości.");
+      return;
+    }
+  
+    if (!(num8 >= num19)) {
+      alert("Warunek h >= SDD nie został spełniony! Sprawdź wprowadzone wartości.");
+      return;
+    }
+
+    if (!(num16 < num18)) {
+      alert("Warunek ADT < CVC nie został spełniony! Sprawdź wprowadzone wartości.");
+      return;
+    }
+
+    if (!(num18 >= num20)) {
+      alert("Warunek CVC >= SDH nie został spełniony! Sprawdź wprowadzone wartości.");
+      return;
+    }
+
+    if (!(num20 >= (num17 + num16))) {
+      alert("Warunek SDH >= ADT + OHC nie został spełniony! Sprawdź wprowadzone wartości.");
+      return;
+    }
+    if (!(num4 <= 1 && num4 >= 0)) {
+      alert("Wartość jest zbyt wysoka (CB > 1)! Sprawdź wprowadzone wartości.");
+      return;
+    }
+    if (!(num1 <= 10 && num1 >= 0)) {
+      alert("Wartość n jest zbyt wysoka(n > 10)! Sprawdź wprowadzone wartości.");
+      return;
+    }
+    if (!(num10 <= 1.5 && num10 >= 0)) {
+      alert("Warunek k <= 1.5 nie został spełniony! Sprawdź wprowadzone wartości.");
+      return;
+    }
+    if (!(num3 <= 1.25 && num3 >= 0)) {
+      alert("Warunek m >= 1.25 nie został spełniony! Sprawdź wprowadzone wartości.");
+      return;
+    }
+
+    if (!(num19 >= war)) {
+      alert("Warunek CVC >= SDH >= n * Tmax + k * hfl  nie został spełniony! Sprawdź wprowadzone wartości.");
+      return;
+    }
+
+
+  var ulamek1 = ((parseFloat(num5) * parseFloat(num6)) /
+((parseFloat(num7) * parseFloat(num8)) - (parseFloat(num5) * parseFloat(num6))))
+var ulamek2 = (0.113 * num5 * (num8 / num6)) ** -(27 / 100)  
+let term1 = num1 * num2;
+let term2 = num3 * (0.113 * num5 * Math.pow(num8 / num6, -0.27) * Math.pow(0.514 * num9 / Math.sqrt(9.81 * num8), 1.8));
+let term3 = num10 * num11 
+let term4 = num3 * num12 * 0.049047542 * Math.pow(num9, 2) * Math.sqrt(num6 / num8) * Math.pow(num13 / num5, -1.11);
+let term5 = (num3/2) * (0.113 * num5 * Math.pow(num8 / num6, -0.27) * Math.pow(0.514 * num9 / Math.sqrt(9.81 * num8), 1.8));
+let term6 = (num3/2) * num12 * 0.049047542 * Math.pow(num9, 2) * Math.sqrt(num6 / num8) * Math.pow(num13 / num5, -1.11);
   
   const resultSDD1 = document.getElementById("result-1");
   const resultValue = parseFloat(resultSDD1.innerText);
+  
+  
 
   const resultSDD2 = document.getElementById("result-2");
   const resultValue2 = parseFloat(resultSDD2.innerText);
@@ -397,38 +539,50 @@ function calculateAllVZ(){
   var ulamek1 = (parseFloat(num5) * parseFloat(num6)) /
 ((parseFloat(num7) * parseFloat(num8)) - (parseFloat(num5) * parseFloat(num6)))
 
-  const transformedValue = (30 * (resultValue - num1 * num2 - num10 * num11) / ((parseFloat(num3) * parseFloat(num4)) * ulamek1 ** (2/3))) ** (25/52)  ; 
+  const transformedValue = (30 * ((num19) - num1 * num2 - num10 * num11) / ((parseFloat(num3) * parseFloat(num4)) * ulamek1 ** (2/3))) ** (25/52)  ; 
   document.getElementById("result-11").innerText = transformedValue.toFixed(2);
 
-  const transformedValue2 = ((resultValue2 - num1 * num2 - num10 * num11) / (0.01 * num3 * num4)) ** (1 / 2); 
+  const transformedValue2 = ((num19 - num1 * num2 - num10 * num11) / (0.01 * num3 * num4)) ** (1 / 2); 
   document.getElementById("result-12").innerText = transformedValue2.toFixed(2);
 
-  const transformedValue3 =((resultValue3 - num1 * num2 - num10 * num11) / (0.02 * num3 * num4)) ** (1 / 2); 
+  const transformedValue3 =((num19 - num1 * num2 - num10 * num11) / (0.02 * num3 * num4)) ** (1 / 2); 
   document.getElementById("result-13").innerText = transformedValue3.toFixed(2);
 
-  const transformedValue4 = 6.533*((9.81 * num8) ** (1 / 2)) * ((resultValue4 - num1 * num2 - num10 * num11) / (num3 * num5)) ** (5 / 9) * (num8 / num6) ** (0.15) 
+  const transformedValue4 = 6.533*((9.81 * num8) ** (1 / 2)) * ((num19 - num1 * num2 - num10 * num11) / (num3 * num5)) ** (5 / 9) * (num8 / num6) ** (0.15) 
   document.getElementById("result-14").innerText = transformedValue4.toFixed(2);
 
-  const transformedValue5 = 4.5154 * ((resultValue5 - num1 * num2 - num10 * num11) / (num3 * num12 * (( num6 / num8 ) ** (1 / 2)) * (( num13 / num5 ) ** (-1.11))) ) ** (1 / 2); 
+  const transformedValue5 = 4.5154 * ((num19 - num1 * num2 - num10 * num11) / (num3 * num12 * (( num6 / num8 ) ** (1 / 2)) * (( num13 / num5 ) ** (-1.11))) ) ** (1 / 2); 
   document.getElementById("result-15").innerText = transformedValue5.toFixed(2);
 
 
 
-  const transformedValue6 = ((60 * (resultValue6 - num16 - num17)) / (num3 * num4 * ulamek1 ** (2/3))) ** (25/52); 
+  const transformedValue6 = ((60 * ((num20) - num16 - num17)) / (num3 * num4 * ulamek1 ** (2/3))) ** (25/52); 
   document.getElementById("result-16").innerText = transformedValue6.toFixed(2);
 
-  const transformedValue7 = ((resultValue7 - num16 - num17) / (0.005 * num3 * num4)) ** (1 / 2); 
-  document.getElementById("result-17").innerText = transformedValue7;
+  const transformedValue7 = ((num20 - num16 - num17) / (0.005 * num3 * num4)) ** (1 / 2); 
+  document.getElementById("result-17").innerText = transformedValue7.toFixed(2);
 
-  const transformedValue8 = ((resultValue8 - num16 - num17) / (0.01 * num3 * num4)) ** (1 / 2); 
-  document.getElementById("result-18").innerText = transformedValue8;
+  const transformedValue8 = ((num20 - num16 - num17) / (0.01 * num3 * num4)) ** (1 / 2); 
+  document.getElementById("result-18").innerText = transformedValue8.toFixed(2);
 
-  const transformedValue9 = 13.066*((9.81 * num8) ** (1 / 2)) * ((resultValue9 - num16 - num17) / (num3 * num5)) ** (5 / 9) * (num8 / num6) ** (0.15) 
-  document.getElementById("result-19").innerText = transformedValue9;
+  const transformedValue9 = 13.066*((9.81 * num8) ** (1 / 2)) * ((num20 - num16 - num17) / (num3 * num5)) ** (5 / 9) * (num8 / num6) ** (0.15) 
+  document.getElementById("result-19").innerText = transformedValue9.toFixed(2);
 
-  const transformedValue10 = 6.3876 * ((resultValue10 - num16 - num17) / (num3 * num12 * (( num6 / num8 ) ** (1 / 2)) * (( num13 / num5 ) ** (-1.11)))) ** (1 / 2); 
-  document.getElementById("result-20").innerText = transformedValue10;
+  const transformedValue10 = 6.3876 * ((num20 - num16 - num17) / (num3 * num12 * (( num6 / num8 ) ** (1 / 2)) * (( num13 / num5 ) ** (-1.11)))) ** (1 / 2); 
+  document.getElementById("result-20").innerText = transformedValue10.toFixed(2);
+
+
+  
+  
+  
+  
+  
+  const resultSDH1V0 =  (num16 + num17) - (num3 * num4 / 60) * ulamek1 ** (2.0 / 3.0) * 0 ** (2.08);
+  
+  document.getElementById("result-25").innerText = resultSDH1V0;
+
 }
+
   
 
 function W(inputId, cellId, limitId) {
@@ -517,8 +671,11 @@ function updateRatios() {
   const lambdafl = parseFloat(document.getElementById('num15').value);
   const H = parseFloat(document.getElementById('num16').value);
   const OHCr = parseFloat(document.getElementById('num17').value);
+  const CVC = parseFloat(document.getElementById('num18').value); // CVC
+  const SDD = parseFloat(document.getElementById('num19').value); // SDD
+  const SDH = parseFloat(document.getElementById('num20').value); // SDH
 
-
+  document.getElementById('cellCVC').textContent = parseInt(CVC);
   //UPDATING TABLE VALUE
 //metoda 2
 
@@ -542,6 +699,7 @@ document.getElementById('cellK2').textContent = k.toFixed(2);
 document.getElementById('cellN2').textContent = n.toFixed(2);
 document.getElementById('cellM2').textContent = m.toFixed(3);
 document.getElementById('celll2').textContent = parseInt(l);
+document.getElementById('cellCVC2').textContent = parseInt(CVC);
 
 //metoda 3
 
@@ -566,6 +724,8 @@ document.getElementById('cellN3').textContent = n.toFixed(2);
 document.getElementById('cellM3').textContent = m.toFixed(3);
 document.getElementById('celll3').textContent = parseInt(l);
 
+document.getElementById('cellCVC3').textContent = parseInt(CVC);
+
 //metoda 4
 
 document.getElementById('cellL4').textContent = parseInt(L);
@@ -588,6 +748,8 @@ document.getElementById('cellK4').textContent = k.toFixed(2);
 document.getElementById('cellN4').textContent = n.toFixed(2);
 document.getElementById('cellM4').textContent = m.toFixed(3);
 document.getElementById('celll4').textContent = parseInt(l);
+
+document.getElementById('cellCVC4').textContent = parseInt(CVC);
 
 //metoda 5
 
@@ -612,6 +774,8 @@ document.getElementById('cellN5').textContent = n.toFixed(2);
 document.getElementById('cellM5').textContent = m.toFixed(3);
 document.getElementById('celll5').textContent = parseInt(l);
 
+document.getElementById('cellCVC5').textContent = parseInt(CVC);
+
 //metoda 6
 document.getElementById('cellL6').textContent = parseInt(L);
 document.getElementById('cellB6').textContent = parseInt(B);
@@ -634,9 +798,23 @@ document.getElementById('cellN6').textContent = n.toFixed(2);
 document.getElementById('cellM6').textContent = m.toFixed(3);
 document.getElementById('celll6').textContent = parseInt(l);
 
+document.getElementById('cellCVC6').textContent = parseInt(CVC);
 
 
 
+//update SDD & SDH
+  document.getElementById("SDD").textContent = SDD;
+  document.getElementById("SDD2").textContent = SDD;
+  document.getElementById("SDD3").textContent = SDD;
+  document.getElementById("SDD4").textContent = SDD;
+  document.getElementById("SDD5").textContent = SDD;
+
+  document.getElementById("SDH").textContent = SDH;
+  document.getElementById("SDH2").textContent = SDH;
+  document.getElementById("SDH3").textContent = SDH;
+  document.getElementById("SDH4").textContent = SDH;
+  document.getElementById("SDH5").textContent = SDH;
+  
   // Update T/L
   const ratioTL = t / L;
   document.getElementById('cellTL').textContent = ratioTL.toFixed(2);
@@ -646,19 +824,24 @@ document.getElementById('celll6').textContent = parseInt(l);
   //update Cb
   document.getElementById('cellCb2').textContent = Cb.toFixed(2);
   document.getElementById('cellCb3').textContent = Cb.toFixed(2);
-    
-    //update ohcr
-    document.getElementById('OHCR').textContent = OHCr.toFixed(2);
-    
-    //UPDATE ADT
-    document.getElementById('ADT').textContent = H.toFixed(2);
 
+//update ohcr
+document.getElementById('OHCR').textContent = OHCr.toFixed(2);
+//update ADT
+document.getElementById('ADT').textContent = H.toFixed(2);
   // Update h/T
   const ratioHT = h / T;
   document.getElementById('cellHT').textContent = ratioHT.toFixed(2);
   document.getElementById('hT2').textContent = ratioHT.toFixed(2);
   document.getElementById('hT3').textContent = ratioHT.toFixed(2);
 
+//update vk
+  const vk = 6.0883 * V ** (1/2);
+  document.getElementById('vk').textContent = vk.toFixed(1);
+  document.getElementById('vk2').textContent = vk.toFixed(1);
+  document.getElementById('vk3').textContent = vk.toFixed(1);
+  document.getElementById('vk4').textContent = vk.toFixed(1);
+  document.getElementById('vk5').textContent = vk.toFixed(1);
 
 
   //update h/t2
@@ -742,3 +925,76 @@ document.getElementById('celll6').textContent = parseInt(l);
 
 
 
+function calculateResults() {
+  try {
+      // Pobieranie i weryfikacja wartości z pól input
+      const getValue = (id) => {
+          const element = document.getElementById(id);
+          if (!element) {
+              console.error(`Element o id "${id}" nie został znaleziony.`);
+              return 0; // Wartość domyślna, jeśli element nie istnieje
+          }
+          const value = parseFloat(element.value);
+          if (isNaN(value)) {
+              console.warn(`Wartość w polu "${id}" nie jest liczbą. Używam wartości 0.`);
+              return 0; // Wartość domyślna, jeśli pole jest puste lub niepoprawne
+          }
+          return value;
+      };
+
+      // Pobieranie danych
+      const T1 = getValue('T1');
+      const gamma1 = getValue('gamma1');
+      const gamma2 = getValue('gamma2');
+      const delta = getValue('delta'); // Używane w oryginalnym kodzie, ale nie w tej formule
+      const alpha = getValue('alpha'); // Używane w oryginalnym kodzie, ale nie w tej formule
+      const D = getValue('D');
+      const TPC = getValue('TPC');
+
+      // Sprawdzenie, czy wartości kluczowe są poprawne
+      if (gamma2 === 0 || TPC === 0) {
+          console.error("Nie można podzielić przez zero! Sprawdź wartości γ₂ i TPC.");
+          return;
+      }
+
+      // Obliczanie ΔT₃
+      const deltaT3 = (1 / 100) * ((gamma1 - gamma2) / gamma2) * (D / TPC);
+      const deltaT3Rounded = deltaT3.toFixed(4);
+      const deltaT = (T1 * ((gamma1 - gamma2) / gamma2) * (delta / alpha));
+      const deltaTRounded = deltaT.toFixed(4);
+      
+
+      // Obliczanie głębokości
+      const depthGamma1 = T1.toFixed(2); // Głębokość w γ₁
+      const depthGamma2 = (T1 + deltaT3).toFixed(4); // Głębokość w γ₂
+      const depthGamma5 = (T1 + deltaT).toFixed(4); // Głębokość w γ₂
+
+      // Wyświetlanie wyników
+      const updateResult = (id, value) => {
+          const element = document.getElementById(id);
+          if (!element) {
+              console.error(`Element o id "${id}" nie został znaleziony.`);
+              return;
+          }
+          element.innerText = value;
+      };
+
+      updateResult('deltaT3', deltaT3Rounded);
+      updateResult('deltaT33', deltaTRounded);
+      updateResult('depthGamma1', depthGamma1);
+      updateResult('depthGamma3', depthGamma1);
+      updateResult('depthGamma2', depthGamma2);
+      updateResult('depthGamma5', depthGamma5);
+      
+
+      console.log("Obliczenia zakończone sukcesem:", {
+          deltaT3: deltaT3Rounded,
+          depthGamma1,
+          depthGamma2,
+      });
+  } catch (error) {
+      console.error("Wystąpił błąd podczas obliczeń:", error);
+  }
+}
+// Inicjalizacja wyników przy starcie
+calculateResults();
