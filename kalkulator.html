@@ -20,7 +20,7 @@
         <li><a href="https://jkopp1717.github.io/Kalkulator-Domeny-Statku/grafiki.html">Grafiki parametrów</a></li>
         <li><a href="https://jkopp1717.github.io/Kalkulator-Domeny-Statku/parametry.html">Jak wykonać obliczenia?</a></li>
     </ul>
-    <br><br><fieldset id="calculator" class="clearfix">
+      <br><br><fieldset id="calculator" class="clearfix">
         <fieldset><legend>Nie rozumiesz któregoś parametru lub wzoru? Tutaj znajdziesz wszystkie informację.</legend>
             <div class="descriptions-container">
                 <select id="descriptionSelect" onchange="updateDescriptionInfo()">
@@ -55,32 +55,32 @@
                 <div class="input-grid">
                     <div class="input-container">
                         <p class="equal">L = </p>
-                        <input type="number" step="any" id="num13" placeholder="Wprowadź L" value="100" maxlength="4" oninput="updateTable('num13', 'cellL'); updateRatios('num13', 'cellTL'); updateRatios('num13', 'celltL2')">
+                        <input type="number" step="any" id="num13" placeholder="Wprowadź L" value="343" maxlength="4" oninput="updateTable('num13', 'cellL'); updateRatios('num13', 'cellTL'); updateRatios('num13', 'celltL2')">
                         <p class="unit">[m]</p>
                         <span class="description"></span>
                     </div>
                     <div class="input-container">
                         <p class="equal">B = </p>
-                        <input type="number" step="any" id="num5" placeholder="Wprowadź B" value="10" maxlength="4" oninput="updateTable('num5', 'cellB'); updateRatios()">
+                        <input type="number" step="any" id="num5" placeholder="Wprowadź B" value="56.5" maxlength="4" oninput="updateTable('num5', 'cellB'); updateRatios()">
                         <p class="unit">[m]</p>
                         <span class="description"></span>
                     </div> 
                     <div class="input-container">
                         <p class="equal">ADT</sub> = </p>
-                        <input type="number" step="1" id="num16" placeholder="Wprowadź Air Draft (H)" min="0" max="50" value="20" oninput="updateTable('num16', 'cellH'); updateRatios()">
+                        <input type="number" step="1" id="num16" placeholder="Wprowadź Air Draft (H)" min="0" max="50" value="39" oninput="updateTable('num16', 'cellH'); updateRatios()">
                         <p class="unit">[-]</p>
                         <span class="description"></span>
                     </div>
         
                     <div class="input-container">
                         <p class="equal">T = </p>
-                        <input type="number" step="any" id="num6" placeholder="Wprowadź T" value="10" maxlength="4" oninput="updateTable('num6', 'cellT'); updateRatios()">
+                        <input type="number" step="any" id="num6" placeholder="Wprowadź T" value="15" maxlength="4" oninput="updateTable('num6', 'cellT'); updateRatios()">
                         <p class="unit">[m]</p>
                         <span class="description"></span>
                     </div>
         
                     <div class="input-container">
-                        <p class="equal">v = </p>
+                        <p class="equal">V = </p>
                         <input type="number" step="any" id="num9" placeholder="Wprowadź v" value="10" maxlength="4" oninput="updateTable('num9', 'cellV'); updateRatios()">
                         <p class="unit">[w]</p>
                         <span class="description"></span>
@@ -103,13 +103,13 @@
                     
 
                     <div class="input-container">
-                        <p class="equal">C<sub>b</sub> = </p>
-                        <input type="number" step="0.01" id="num4" placeholder="Wprowadź C_b" min="0" max="1" value="1" oninput="updateTable('num4', 'cellCb'); updateRatios()">
+                        <p class="equal">C<sub>B</sub> = </p>
+                        <input type="number" step="0.01" id="num4" placeholder="Wprowadź C_b" min="0" max="1" value="0.84" oninput="updateTable('num4', 'cellCb'); updateRatios()">
                         <p class="unit">[-]</p>
                         <span class="description"></span>
                     </div>
                     <div class="input-container">
-                        <p class="equal">OHC<sub>r</sub> = </p>
+                        <p class="equal">OHC<sub>R</sub> = </p>
                         <input type="number" step="1" id="num17" placeholder="Wprowadź OHCr" min="0" max="10" value="1" oninput="updateTable('num17', 'cellOHCs') ; updateRatios()">
                         <p class="unit">[-]</p>
                         <span class="description"></span>
@@ -125,21 +125,27 @@
                 <div class="input-grid">
                     <div class="input-container">
                         <p class="equal">b = </p>
-                        <input type="number" step="any" id="num7" placeholder="Wprowadź b" value="200" maxlength="4" oninput="updateTable('num7', 'cellb'); updateRatios()">
+                        <input type="number" step="any" id="num7" placeholder="Wprowadź b" value="346.5" maxlength="4" oninput="updateTable('num7', 'cellb'); updateRatios()">
                         <p class="unit">[m]</p>
                         <span class="description"></span>
                     </div>
         
                     <div class="input-container">
                         <p class="equal">h = </p>
-                        <input type="number" step="any" id="num8" placeholder="Wprowadź h" value="40" maxlength="4" oninput="updateTable('num8', 'cellH'); updateRatios()">
+                        <input type="number" step="any" id="num8" placeholder="Wprowadź h" value="17" maxlength="4" oninput="updateTable('num8', 'cellH'); updateRatios()">
+                        <p class="unit">[m]</p>
+                        <span class="description"></span>
+                    </div>
+                    <div class="input-container">
+                        <p class="equal">CVC = </p>
+                        <input type="number" step="any" id="num18" placeholder="Wprowadź CVC" value="44" maxlength="4" oninput="updateTable('num18', 'cellCVC'); updateRatios()">
                         <p class="unit">[m]</p>
                         <span class="description"></span>
                     </div>
         
                     <div class="input-container">
                         <p class="equal">h<sub>fl</sub>  = </p>
-                        <input type="number" step="any" id="num11" placeholder="Wprowadź h_f" value="2" maxlength="4" oninput="updateTable('num11', 'cellHf'); updateRatios()">
+                        <input type="number" step="any" id="num11" placeholder="Wprowadź h_f" value="1" maxlength="4" oninput="updateTable('num11', 'cellHf'); updateRatios()">
                         <p class="unit">[m]</p>
                         <span class="description"></span>
                     </div>
@@ -154,40 +160,52 @@
         </fieldset>
         
         <fieldset>
-            <legend class="pKorekcyjny">4. Tutaj wprowadź parametry korekcyjne</legend>
+            <legend class="pKorekcyjny">4. Tutaj wprowadź wartości parametrów korekcyjnych oraz domen</legend>
             <div class="input-list">
                 
                 <div class="input-grid">
                     <div class="input-container">
                         <p class="equal">k = </p>
-                        <input type="number" step="0.05" id="num10" placeholder="Wprowadź k" value="1.10" min="1.10" maxlength="4" oninput="updateTable('num10', 'cellK'); updateRatios()">
+                        <input type="number" step="0.05" id="num10" placeholder="Wprowadź k" value="1" min="1.10" maxlength="4" oninput="updateTable('num10', 'cellK'); updateRatios()">
                         <p class="unit">[-]</p>
                         <span class="description"></span>
                     </div>
         
                     <div class="input-container">
                         <p class="equal">n = </p>
-                        <input type="number" step="0.05" id="num1" placeholder="Wprowadź n" value="1.0" min="1.0" maxlength="4" oninput="updateTable('num1', 'cellN'); updateRatios()">
+                        <input type="number" step="0.05" id="num1" placeholder="Wprowadź n" value="1.05" min="1.0" maxlength="4" oninput="updateTable('num1', 'cellN'); updateRatios()">
                         <p class="unit">[-]</p>
                         <span class="description"></span>
                     </div>
         
                     <div class="input-container">
                         <p class="equal">m = </p>
-                        <input type="number" step="0.025" id="num3" placeholder="Wprowadź m" value="0.5" min="0.5" maxlength="4" oninput="updateTable('num3', 'cellM'); updateRatios()">
+                        <input type="number" step="0.025" id="num3" placeholder="Wprowadź m" value="1" min="0.5" maxlength="4" oninput="updateTable('num3', 'cellM'); updateRatios()">
                         <p class="unit">[-]</p>
                         <span class="description"></span>
                     </div>
                     
                     <div class="input-container">
                         <p class="equal">l = </p>
-                        <input type="number" step="any" id="num12" placeholder="Wprowadź l" value="1.0" maxlength="4" oninput="updateTable('num12', 'celll'); updateRatios()" required>
+                        <input type="number" step="any" id="num12" placeholder="Wprowadź l" value="1.5" maxlength="4" oninput="updateTable('num12', 'celll'); updateRatios()" required>
                         <p class="unit">[-]</p>
                         <span class="description"></span>
                        <!-- <div hidden><button onclick="calculate()">Oblicz</button></div>-->
                        
                     </div>
                     
+                    <div class="input-container">
+                        <p class="equal">SD<sub>D</sub> = </p>
+                        <input type="number" step="0.5" value="16.61" id="num19" placeholder="Wprowadź SDD"  min="0.5" maxlength="4" oninput="updateTable('', ''); updateRatios()">
+                        <p class="unit">[m]</p>
+                        <span class="description"></span>
+                    </div>
+                    <div class="input-container">
+                        <p class="equal">SD<sub>H</sub> = </p>
+                        <input type="number" step="0.5" value="40.66" id="num20" placeholder="Wprowadź SDH"  min="0.5" maxlength="4" oninput="updateTable('', ''); updateRatios()">
+                        <p class="unit">[m]</p>
+                        <span class="description"></span>
+                    </div>
                 </div>
             </div>
             
@@ -250,8 +268,8 @@
                 </table>
                 <h2>UWAGA: Upewnij się, że parametry korekcyjne są poprawne.</h2>
                 <div class="buttons">
-                    <div class="Calculations"><button id="independentButton" class="calcButtons" onclick="calculateAllSD()">Oblicz SDD, SDH</button></div>
-                    <div class="Calculations"><button id="independentButton" class="calcButtons" onclick="calculateAllVZ()">Oblicz VZD, VZH</button></div>
+                    <div class="Calculations"><button id="independentButton" class="calcButtons" onclick="calculateAllSD()">Oblicz SD<sub>D</sub>, SD<sub>H</sub></button></div>
+                    <div class="Calculations"><button id="independentButton" class="calcButtons" onclick="calculateAllVZ()">Oblicz VZ<sub>D</sub>, VZ<sub>H</sub></button></div>
                      </div>
                 
                 </fieldset>
@@ -268,7 +286,7 @@
         <button class="tablink" onclick="openPage('Contact', this, 'orange')">METODA 3</button>
         <button class="tablink" onclick="openPage('About', this, 'orange')">METODA 4</button>
         <button class="tablink" onclick="openPage('Metoda5', this, 'orange')">METODA 5</button>
-        <button class="tablink" onclick="openPage('Metoda6', this, 'orange')">METODA DODATKOWA</button>
+        <button class="tablink" onclick="openPage('Metoda6', this, 'orange')">ZMIANA ZANURZENIA</button>
         </div>
         
     
@@ -286,26 +304,22 @@
                     <tr>
                         <th style="background-color: #ea5050b4;">L [m]</th>
                         <th style="background-color: #ea5050b4;">B [m]</th>
-                        <th style="background-color: #ea5050b4;">H [m]</th>
+                        <th style="background-color: #ea5050b4;">ADT [m]</th>
                         <th style="background-color: #ea5050b4;">T [m]</th>
-                        <th style="background-color: #ea5050b4;">v [w]</th>
+                        <th style="background-color: #ea5050b4;">V [w]</th>
                         <th style="background-color: #ea5050b4;">t [m]</th> 
                         <th style="background-color: #ea5050b4;">T<sub>max</sub> [m]</th>
-                        <th style="background-color: #ea5050b4;">C<sub>b</sub> [-]</th>
-                        <th style="background-color: #ea5050b4;">OHC<sub>r</sub> [m]</th>
+                        <th style="background-color: #ea5050b4;">C<sub>B</sub> [-]</th>
+                        <th style="background-color: #ea5050b4;">OHC<sub>R</sub> [m]</th>
                         <th style="background-color:#4658cc">b [m]</th>
                         <th style="background-color:#4658cc">h [m]</th>
-                        <th style="background-color:#4658cc">h<sub>f</sub> [m]</th>
+                        <th style="background-color:#4658cc">CVC [m]</th>
+                        <th style="background-color:#4658cc">h<sub>fl</sub> [m]</th>
                         <th style="background-color:#4658cc">λ<sub>fl</sub> [m]</th>
                         <th style="background-color: #60b560">k [-]</th>
                         <th style="background-color: #60b560">n [-]</th>
                         <th style="background-color: #60b560">m [-]</th>
                         <th style="background-color: #60b560">l [-]</th>
-                        
-                        
-                        
-                        
-                    
                     </tr>
                 </thead>
         
@@ -322,6 +336,7 @@
                         <td id="cellOHCs">1.00</td>
                         <td id="cellb">200</td>
                         <td id="cellH">40</td>
+                        <td id="cellCVC">40</td>
                         <td id="cellHf">2.00</td>
                         <td id="cellHfl">0.5</td>
                         <td id="cellK">1.10</td>
@@ -338,7 +353,7 @@
                 <table>
                 <thead>
                     <tr>
-                        <th>Współczynnik pełnotliwości $$0,5\leq C_{b} \leq 0,9$$</th>
+                        <th>Współczynnik pełnotliwości $$0,5\leq C_{B} \leq 0,9$$</th>
                         <th>Proporcja trymu do długości całkowitej statku $$ 0 \leq \frac{t}{L} \leq 0,005$$</th>
                         <th>Proporcja głębokości akwenu do zanurzenia statku $$ 1,1 \leq \frac{h}{T} \leq 1,4$$</th>
                     </tr>
@@ -363,7 +378,7 @@
                     <tr>
                         <th>Zanurzenie statyczne $$n\cdot T_{max}$$</th>
                         <th>Współczynnik osiadania $$\frac{m\cdot C_{B}}{30}\cdot (\frac{B\cdot T}{b\cdot h-B\cdot T})^{\frac{2}{3}}\cdot V^{2,08}$$</th>
-                        <th>Wpływ falowania $$k\cdot h_{f}$$</th>
+                        <th>Wpływ falowania $$k\cdot h_{fl}$$</th>
                     </tr>
                 </thead>
                 
@@ -372,13 +387,33 @@
                 <td id="khf">0</td>
             </table>
         </td>
-            <td class="wzory">$$SD_{D} = n\cdot T_{max}+\frac{m\cdot C_{B}}{30}\cdot (\frac{B\cdot T}{b\cdot h-B\cdot T})^{\frac{2}{3}}\cdot V^{2,08}+k\cdot h_{f}$$</td>
+            <td class="wzory">
+                $$SD_{D} = n\cdot T_{max}+\frac{m\cdot C_{B}}{30}\cdot (\frac{B\cdot T}{b\cdot h-B\cdot T})^{\frac{2}{3}}\cdot V^{2,08}+k\cdot h_{fl}$$</td>
             
             <td class="Jednostka">[m]</td>  
             <td class="result">
-                <div class="result-container" id="resultContainer-1">
-                    <p id="result-1"></p>
-                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                        <th colspan="4">Głębokość domeny</th>
+                    </tr>
+                    </thead
+                    
+                        <tr>
+                            <th>V = 0kn</th>
+                            <th>V = 5kn</th>
+                            <th>V<sub>wpr</sub></th>  
+                            <th>V = 20kn</th>
+                            
+                        </tr>
+                    
+                    <td id=""><p id="result-21"></p></td>
+                    <td id=""><p id="result-22"></p></td>
+                    <td id=""><p id="result-1"></p></td>
+                    <td id=""><p id="result-23"></p></td>
+                    
+                </table>
             </td>
             
         </tr>
@@ -387,18 +422,20 @@
             <table>
             <thead>
                 <tr>
-                    <th>[-]</th>
+                    <th>Prędkość krytyczna <br>V<sub>k</sub></th>
+                    <th>SD<sub>D</sub><br>[m]</th>
                     <th>$$m\cdot C_{B}\cdot (\frac{B\cdot T}{b\cdot h-B\cdot T})^{\frac{2}{3}}$$</th>
-                    <th>[-]</th>
                 </tr>
             </thead>
             
-            <td id="">0</td>
+            <td id="vk">0</td>
+            <td id="SDD">0</td>
             <td id="wOsi2">0</td>
-            <td id="">0</td>
         </table>
     </td>
-            <td class="wzory"> $$V_{ZD} = (\frac{30\cdot (SD_{D} - n \cdot T_{max}-k \cdot h_{f})}{m\cdot C_{b}\cdot (\frac{B \cdot T}{b \cdot h - B \cdot T})^{\frac{2}{3}}})^{\frac{25}{52}}$$</td>
+            <td class="wzory"><br>
+                Założenia: SDD = h, h > Tmax; SDD ≥ n ∙ Tmax + k ∙ hf,
+                $$V_{ZD} = (\frac{30\cdot (SD_{D} - n \cdot T_{max}-k \cdot h_{fl})}{m\cdot C_{B}\cdot (\frac{B \cdot T}{b \cdot h - B \cdot T})^{\frac{2}{3}}})^{\frac{25}{52}}$$</td>
             
 
             <td class="Jednostka">[kn]</td>
@@ -406,6 +443,7 @@
                 <div class="result-container" id="resultContainerV-1">
                     <p id="result-11"></p>
                 </div>
+                
             </td>
             
             
@@ -431,11 +469,27 @@
 
             <td class="Jednostka">[m]</td>
                 <td class="result">
-                <div class="result-container" id="resultContainer-6">
-                    <p id="result-6"></p>
-                </div>
-            
-            
+                
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                            <th colspan="4">Wysokość domeny</th>
+                        </tr>
+                        <thead>
+                            <tr>
+                                <th>V = 0kn</th>
+                                <th>V = 5kn</th>
+                                <th>V<sub>wpr</sub></th> 
+                                <th>V = 20kn</th>
+                        
+                            </tr>
+                        </thead>
+                        <td id=""><p id="result-24"></p></td>
+                        <td id=""><p id="result-25"></p></td>
+                        <td id=""><p id="result-6"></p></td>
+                        <td id=""><p id="result-26"></p></td>
+                    </table>
             
         </tr>
         <tr>
@@ -443,18 +497,22 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>[-]</th>
+                            <th>SD<sub>H</sub><br>[m]</th>
                             <th>$$m\cdot C_{B}\cdot (\frac{B\cdot T}{b\cdot h-B\cdot T})^{\frac{2}{3}}$$</th>
                             
                         </tr>
                     </thead>
                     
-                    <td id="">0</td>
+                    <td id="SDH">0</td>
                     <td id="wOsi4">0</td>
                     
                 </table>
                 </td>
-            <td class="wzory">$$V_{ZH} = (\frac{60\cdot (SD_{H} - ADT - OHC_{R})}{m\cdot C_{b}\cdot (\frac{B \cdot T}{b \cdot h - B \cdot T})^{\frac{2}{3}}})^{\frac{25}{52}}$$</td>
+            <td class="wzory"> CVC = SDH <br>
+                Założenia: CVC ≥ SDH z ograniczeniem
+                SDH ≥ ADT + OHCR,
+                
+                $$V_{ZH} = (\frac{60\cdot (SD_{H} - ADT - OHC_{R})}{m\cdot C_{B}\cdot (\frac{B \cdot T}{b \cdot h - B \cdot T})^{\frac{2}{3}}})^{\frac{25}{52}}$$</td>
             
 
             <td class="Jednostka">[kn]</td>
@@ -462,6 +520,8 @@
                 <div class="result-container" id="resultContainerV-6">
                     <p id="result-16"></p>
                 </div>
+                    
+                
             </td>
             
             
@@ -482,26 +542,22 @@
                                     <tr>
                                         <th style="background-color: #ea5050b4;">L [m]</th>
                                         <th style="background-color: #ea5050b4;">B [m]</th>
-                                        <th style="background-color: #ea5050b4;">H [m]</th>
+                                        <th style="background-color: #ea5050b4;">ADT [m]</th>
                                         <th style="background-color: #ea5050b4;">T [m]</th>
-                                        <th style="background-color: #ea5050b4;">v [w]</th>
+                                        <th style="background-color: #ea5050b4;">V [w]</th>
                                         <th style="background-color: #ea5050b4;">t [m]</th> 
                                         <th style="background-color: #ea5050b4;">T<sub>max</sub> [m]</th>
-                                        <th style="background-color: #ea5050b4;">C<sub>b</sub> [-]</th>
-                                        <th style="background-color: #ea5050b4;">OHC<sub>r</sub> [m]</th>
+                                        <th style="background-color: #ea5050b4;">C<sub>B</sub> [-]</th>
+                                        <th style="background-color: #ea5050b4;">OHC<sub>R</sub> [m]</th>
                                         <th style="background-color:#4658cc">b [m]</th>
                                         <th style="background-color:#4658cc">h [m]</th>
-                                        <th style="background-color:#4658cc">h<sub>f</sub> [m]</th>
+                                        <th style="background-color:#4658cc">CVC [m]</th>
+                                        <th style="background-color:#4658cc">h<sub>fl</sub> [m]</th>
                                         <th style="background-color:#4658cc">λ<sub>fl</sub> [m]</th>
                                         <th style="background-color: #60b560">k [-]</th>
                                         <th style="background-color: #60b560">n [-]</th>
                                         <th style="background-color: #60b560">m [-]</th>
                                         <th style="background-color: #60b560">l [-]</th>
-                                        
-                                        
-                                        
-                                        
-                                    
                                     </tr>
                                 </thead>
                         
@@ -520,6 +576,7 @@
 
                                         <td id="cellb2">200</td>
                                         <td id="cellh2">40</td>
+                                        <td id="cellCVC2">40</td>
                                         <td id="cellHf2">2.00</td>
                                         <td id="cellHfl2">0.5</td>
 
@@ -559,7 +616,7 @@
                     <thead>
                         <tr>
                             <th>Zanurzenie statyczne $$n \cdot T_{max}$$</th>
-                            <th>Współczynnik osiadania $$m\cdot (0.01\cdot C_{b}\cdot V^{2})$$</th>
+                            <th>Współczynnik osiadania $$m\cdot (0.01\cdot C_{B}\cdot V^{2})$$</th>
                             <th>Wpływ falowania $$ k\cdot h_{f}$$</th>
                         </tr>
                     </thead>
@@ -569,7 +626,7 @@
                     <td id="khf3">0</td>
                 </table>
             </td>
-            <td class="wzory">$$SD_{D} = n \cdot T_{max}+m\cdot (0.01\cdot C_{b}\cdot V^{2})+k \cdot h_{f}$$</td>
+            <td class="wzory">$$SD_{D} = n \cdot T_{max}+m\cdot (0.01\cdot C_{B}\cdot V^{2})+k \cdot h_{fl}$$</td>
             
             <td class="Jednostka">[m]</td>
             <td class="result">
@@ -583,18 +640,18 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>[-]</th>
-                            <th>$$0.01\cdot m\cdot C_{b}$$</th>
-                            <th>[-]</th>
+                            <th>Prędkość krytyczna <br>V<sub>k</sub></th>
+                            <th>$$0.01\cdot m\cdot C_{B}$$</th>
+                            <th>SD<sub>D</sub><br>[m]</th>
                         </tr>
                     </thead>
                     
-                    <td id="">0</td>
+                    <td id="vk2">0</td>
                     <td id="wOsi8">0</td>
-                    <td id="">0</td>
+                    <td id="SDD2">0</td>
                 </table>
             </td>
-            <td class="wzory"> $$V_{ZD} = \sqrt{\frac{SD_{D}-n \cdot T_{max}-k\cdot h{f}}{0,01 \cdot m \cdot C_{B}}}$$</td>
+            <td class="wzory"> $$V_{ZD} = \sqrt{\frac{SD_{D}-n \cdot T_{max}-k\cdot h_{fl}}{0,01 \cdot m \cdot C_{B}}}$$</td>
             
             <td class="Jednostka">[kn]</td>
 
@@ -610,7 +667,7 @@
                     <thead>
                         <tr>
                             <th>[-]</th>
-                            <th>Współczynnik osiadania $$0.005\cdot m\cdot C_{b}\cdot V^{2}$$</th>
+                            <th>Współczynnik osiadania $$0.005\cdot m\cdot C_{B}\cdot V^{2}$$</th>
                             <th>[-]</th>
                         </tr>
                     </thead>
@@ -620,7 +677,7 @@
                     <td id="">0</td>
                 </table>
             </td> 
-            <td class="wzory">$$SD_{H} = Air Draft + OHC_{R} - 0,005 \cdot m \cdot C_{B} \cdot V^{2}$$</td>
+            <td class="wzory">$$SD_{H} = ADT + OHC_{R} - 0,005 \cdot m \cdot C_{B} \cdot V^{2}$$</td>
             <td class="Jednostka">[m]</td>
             <td class="result">
                 <div class="result-container" id="resultContainer-7">
@@ -632,13 +689,13 @@
             <td class="opis"><table>
                     <thead>
                         <tr>
-                            <th>[-]</th>
-                            <th>$$0.005\cdot m\cdot C_{b}$$</th>
+                            <th>SD<sub>H</sub><br>[m]</th>
+                            <th>$$0.005\cdot m\cdot C_{B}$$</th>
                             <th>[-]</th>
                         </tr>
                     </thead>
                     
-                    <td id="">0</td>
+                    <td id="SDH2">0</td>
                     <td id="wOsi7">0</td>
                     <td id="">0</td>
                 </table>
@@ -661,7 +718,7 @@
   
             
           
-        <h2>Metoda Grzegorza Rutkowskiego z wzorami uproszczoną C.B. Barrasa, do szacowania osiadania statku w wąskim kanale</h2>
+        <h2>Metoda Grzegorza Rutkowskiego z wzorami uproszczoną C.B. Barrasa, do szacowania osiadania statku w wąskim kanale.</h2>
         <table>
             <tbody>
                 <thead>
@@ -672,26 +729,22 @@
                                     <tr>
                                         <th style="background-color: #ea5050b4;">L [m]</th>
                                         <th style="background-color: #ea5050b4;">B [m]</th>
-                                        <th style="background-color: #ea5050b4;">H [m]</th>
+                                        <th style="background-color: #ea5050b4;">ADT [m]</th>
                                         <th style="background-color: #ea5050b4;">T [m]</th>
-                                        <th style="background-color: #ea5050b4;">v [w]</th>
+                                        <th style="background-color: #ea5050b4;">V [w]</th>
                                         <th style="background-color: #ea5050b4;">t [m]</th> 
                                         <th style="background-color: #ea5050b4;">T<sub>max</sub> [m]</th>
-                                        <th style="background-color: #ea5050b4;">C<sub>b</sub> [-]</th>
-                                        <th style="background-color: #ea5050b4;">OHC<sub>r</sub> [m]</th>
+                                        <th style="background-color: #ea5050b4;">C<sub>B</sub> [-]</th>
+                                        <th style="background-color: #ea5050b4;">OHC<sub>R</sub> [m]</th>
                                         <th style="background-color:#4658cc">b [m]</th>
                                         <th style="background-color:#4658cc">h [m]</th>
-                                        <th style="background-color:#4658cc">h<sub>f</sub> [m]</th>
+                                        <th style="background-color:#4658cc">CVC [m]</th>
+                                        <th style="background-color:#4658cc">h<sub>fl</sub> [m]</th>
                                         <th style="background-color:#4658cc">λ<sub>fl</sub> [m]</th>
                                         <th style="background-color: #60b560">k [-]</th>
                                         <th style="background-color: #60b560">n [-]</th>
                                         <th style="background-color: #60b560">m [-]</th>
                                         <th style="background-color: #60b560">l [-]</th>
-                                        
-                                        
-                                        
-                                        
-                                    
                                     </tr>
                                 </thead>
                         
@@ -710,6 +763,7 @@
 
                                         <td id="cellb3">200</td>
                                         <td id="cellh3">40</td>
+                                        <td id="cellCVC3">40</td>
                                         <td id="cellHf3">2.00</td>
                                         <td id="cellHfl3">0.5</td>
 
@@ -749,8 +803,8 @@
                     <thead>
                         <tr>
                             <th>Zanurzenie statyczne $$n \cdot T_{max}$$</th>
-                            <th>Współczynnik osiadania $$m\cdot (0.02\cdot C_{b}\cdot V^{2})$$</th>
-                            <th>Wpływ falowania $$ k\cdot h_{f}$$</th>
+                            <th>Współczynnik osiadania $$m\cdot (0.02\cdot C_{B}\cdot V^{2})$$</th>
+                            <th>Wpływ falowania $$ k\cdot h_{fl}$$</th>
                         </tr>
                     </thead>
                     
@@ -760,7 +814,7 @@
                 </table>
             </td>
             
-            <td class="wzory">$$SD_{D} = n \cdot T_{max}+m\cdot (0.02\cdot C_{b}\cdot V^{2})+k \cdot h_{f}$$</td>
+            <td class="wzory">$$SD_{D} = n \cdot T_{max}+m\cdot (0.02\cdot C_{B}\cdot V^{2})+k \cdot h_{fl}$$</td>
             <td class="Jednostka">[m]</td>
             <td class="result">
                 <div class="result-container" id="resultContainer-3">
@@ -773,18 +827,18 @@
                 <table>
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>Prędkość krytyczna <br>V<sub>k</sub></th>
                             <th>$$0.02\cdot m \cdot C_{B}$$</th>
-                            <th></th>
+                            <th>SD<sub>D</sub><br>[m]</th>
                         </tr>
                     </thead>
                     
-                    <td id="">0</td>
+                    <td id="vk3">0</td>
                     <td id="wOsi10">0</td>
-                    <td id="">0</td>
+                    <td id="SDD3">0</td>
                 </table>
             </td>
-            <td class="wzory">$$V_{ZD} = \sqrt{\frac{SD_{D}-n \cdot T_{max}-k\cdot h{f}}{0,02 \cdot m \cdot C_{B}}}$$</td>
+            <td class="wzory">$$V_{ZD} = \sqrt{\frac{SD_{D}-n \cdot T_{max}-k\cdot h_{fl}}{0,02 \cdot m \cdot C_{B}}}$$</td>
             <td class="Jednostka">[kn]</td>
             <td class="result">
                 <div class="result-container" id="resultContainerV-3">
@@ -798,7 +852,7 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th>$$m\cdot (0.01\cdot C_{b}\cdot V^{2})$$</th>
+                            <th>$$m\cdot (0.01\cdot C_{B}\cdot V^{2})$$</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -808,7 +862,7 @@
                     <td id="">0</td>
                 </table>
             </td>
-            <td class="wzory">$$SD_{H} = Air Draft + OHC_{R} - 0,01 \cdot m \cdot C_{B} \cdot V^{2}$$</td>
+            <td class="wzory">$$SD_{H} = ADT + OHC_{R} - 0,01 \cdot m \cdot C_{B} \cdot V^{2}$$</td>
             <td class="Jednostka">[m]</td>
             <td class="result">
                 <div class="result-container" id="resultContainer-8">
@@ -821,13 +875,13 @@
                 <table>
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>SD<sub>H</sub><br>[m]</th>
                             <th>$$0.01\cdot m \cdot C_{B}$$</th>
                             <th></th>
                         </tr>
                     </thead>
                     
-                    <td id="">0</td>
+                    <td id="SDH3">0</td>
                     <td id="wOsi12">0</td>
                     <td id="">0</td>
                 </table>
@@ -849,7 +903,7 @@
   
             
           
-        <h2>Metoda Grzegorza Rutkowskiego i wzory N.E. Eryuzlu i R. Haussera do szacowania osiadania statku w ruchu</h2>
+        <h2>Metoda Grzegorza Rutkowskiego i wzory N.E. Eryuzlu i R. Haussera do szacowania osiadania statku w ruchu.</h2>
         <table>
             <tbody>
                 <thead>
@@ -860,26 +914,22 @@
                                     <tr>
                                         <th style="background-color: #ea5050b4;">L [m]</th>
                                         <th style="background-color: #ea5050b4;">B [m]</th>
-                                        <th style="background-color: #ea5050b4;">H [m]</th>
+                                        <th style="background-color: #ea5050b4;">ADT [m]</th>
                                         <th style="background-color: #ea5050b4;">T [m]</th>
-                                        <th style="background-color: #ea5050b4;">v [w]</th>
+                                        <th style="background-color: #ea5050b4;">V [w]</th>
                                         <th style="background-color: #ea5050b4;">t [m]</th> 
                                         <th style="background-color: #ea5050b4;">T<sub>max</sub> [m]</th>
-                                        <th style="background-color: #ea5050b4;">C<sub>b</sub> [-]</th>
-                                        <th style="background-color: #ea5050b4;">OHC<sub>r</sub> [m]</th>
+                                        <th style="background-color: #ea5050b4;">C<sub>B</sub> [-]</th>
+                                        <th style="background-color: #ea5050b4;">OHC<sub>R</sub> [m]</th>
                                         <th style="background-color:#4658cc">b [m]</th>
                                         <th style="background-color:#4658cc">h [m]</th>
-                                        <th style="background-color:#4658cc">h<sub>f</sub> [m]</th>
+                                        <th style="background-color:#4658cc">CVC [m]</th>
+                                        <th style="background-color:#4658cc">h<sub>fl</sub> [m]</th>
                                         <th style="background-color:#4658cc">λ<sub>fl</sub> [m]</th>
                                         <th style="background-color: #60b560">k [-]</th>
                                         <th style="background-color: #60b560">n [-]</th>
                                         <th style="background-color: #60b560">m [-]</th>
                                         <th style="background-color: #60b560">l [-]</th>
-                                        
-                                        
-                                        
-                                        
-                                    
                                     </tr>
                                 </thead>
                         
@@ -898,6 +948,7 @@
 
                                         <td id="cellb4">200</td>
                                         <td id="cellh4">40</td>
+                                        <td id="cellCVC4">40</td>
                                         <td id="cellHf4">2.00</td>
                                         <td id="cellHfl4">0.500</td>
 
@@ -917,7 +968,7 @@
                                 <tr>
                                     
                                     <th> Współczynnik pełnotliwości kadłuba
-                                        $$ C_{b}\geq 0,7$$ 
+                                        $$ C_{B}\geq 0,7$$ 
 
                                     </th>
                                     <th>Proporcja głębokości akwenu do zanurzenia statycznego
@@ -944,7 +995,7 @@
                         <tr>
                             <th>Zanurzenie statyczne $$n \cdot T_{max}$$</th>
                             <th>Współczynnik osiadania $$m\cdot (0,113\cdot B\cdot (\frac{h}{T})^{-0,27}\cdot (\frac{0,514\cdot V}{\sqrt{g \cdot h}})^{1,8})$$</th>
-                            <th>Wpływ falowania $$ k\cdot h_{f}$$</th>
+                            <th>Wpływ falowania $$ k\cdot h_{fl}$$</th>
                         </tr>
                     </thead>
                     
@@ -953,7 +1004,7 @@
                     <td id="khf4">0</td>
                 </table>
             </td>
-            <td class="wzory">$$SD_{D} = n \cdot T_{max} + m \cdot (0,113 \cdot B \cdot (\frac{h}{T})^{-0.27}\cdot (\frac{0,514 \cdot V}{\sqrt{g \cdot h}})^{1.8}) + k \cdot h_{f}$$</td>
+            <td class="wzory">$$SD_{D} = n \cdot T_{max} + m \cdot (0,113 \cdot B \cdot (\frac{h}{T})^{-0.27}\cdot (\frac{0,514 \cdot V}{\sqrt{g \cdot h}})^{1.8}) + k \cdot h_{fl}$$</td>
             <td class="Jednostka">[m]</td>
             <td class="result">
                 <div class="result-container" id="resultContainer-4">
@@ -963,9 +1014,22 @@
         </tr>
         <tr>
             <td class="opis">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Prędkość krytyczna <br>V<sub>k</sub></th>
+                            <th>SD<sub>D</sub><br>[m]</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    
+                    <td id="vk4">0</td>
+                    <td id="SDD4">0</td>
+                    <td id="">0</td>
+                </table>
                 
             </td>
-            <td class="wzory">$$V_{ZD}= 6,533 \sqrt{g \cdot h} \cdot (\frac{h}{T})^{0,15} \cdot (\frac{SD_{D}-n \cdot T_{max}-k\cdot h_{f}}{m\cdot B})^{\frac{5}{9}}$$</td>
+            <td class="wzory">$$V_{ZD}= 6,533 \sqrt{g \cdot h} \cdot (\frac{h}{T})^{0,15} \cdot (\frac{SD_{D}-n \cdot T_{max}-k\cdot h_{fl}}{m\cdot B})^{\frac{5}{9}}$$</td>
             <td class="Jednostka">[kn]</td>
             <td class="result">
                 <div class="result-container" id="resultContainerV-4">
@@ -998,7 +1062,21 @@
             </td>
         </tr>
         <tr>
-            <td class="opis"></td>
+            <td class="opis">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>SD<sub>H</sub><br>[m]</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    
+                    <td id="SDH4">0</td>
+                    <td id="">0</td>
+                    <td id="">0</td>
+                </table>
+            </td>
             <td class="wzory">$$V_{ZH} = 13,066\sqrt{g \cdot h} \cdot (\frac{h}{T})^{0,15} \cdot (\frac{SD_{H}-ADT -OHC_{R}}{m\cdot B})^{\frac{5}{9}}$$</td>
             <td class="Jednostka">[kn]</td>
             <td class="result">
@@ -1016,7 +1094,7 @@
     
             
           
-        <h2>Metoda Grzegorza Rutkowskiego z wzorami G.I. Soukhomel’a i V.M. Zass’a do oszacowania osiadania statku w ruchu na wodach płytkich, lecz nieograniczonych pod względem szerokości</h2>
+        <h2>Metoda Grzegorza Rutkowskiego z wzorami G.I. Soukhomel’a i V.M. Zass’a do oszacowania osiadania statku w ruchu na wodach płytkich, lecz nieograniczonych pod względem szerokości.</h2>
         <table>
             <tbody>
                 <thead>
@@ -1027,26 +1105,22 @@
                                     <tr>
                                         <th style="background-color: #ea5050b4;">L [m]</th>
                                         <th style="background-color: #ea5050b4;">B [m]</th>
-                                        <th style="background-color: #ea5050b4;">H [m]</th>
+                                        <th style="background-color: #ea5050b4;">ADT [m]</th>
                                         <th style="background-color: #ea5050b4;">T [m]</th>
-                                        <th style="background-color: #ea5050b4;">v [w]</th>
+                                        <th style="background-color: #ea5050b4;">V [w]</th>
                                         <th style="background-color: #ea5050b4;">t [m]</th> 
                                         <th style="background-color: #ea5050b4;">T<sub>max</sub> [m]</th>
-                                        <th style="background-color: #ea5050b4;">C<sub>b</sub> [-]</th>
-                                        <th style="background-color: #ea5050b4;">OHC<sub>r</sub> [m]</th>
+                                        <th style="background-color: #ea5050b4;">C<sub>B</sub> [-]</th>
+                                        <th style="background-color: #ea5050b4;">OHC<sub>R</sub> [m]</th>
                                         <th style="background-color:#4658cc">b [m]</th>
                                         <th style="background-color:#4658cc">h [m]</th>
-                                        <th style="background-color:#4658cc">h<sub>f</sub> [m]</th>
+                                        <th style="background-color:#4658cc">CVC [m]</th>
+                                        <th style="background-color:#4658cc">h<sub>fl</sub> [m]</th>
                                         <th style="background-color:#4658cc">λ<sub>fl</sub> [m]</th>
                                         <th style="background-color: #60b560">k [-]</th>
                                         <th style="background-color: #60b560">n [-]</th>
                                         <th style="background-color: #60b560">m [-]</th>
                                         <th style="background-color: #60b560">l [-]</th>
-                                        
-                                        
-                                        
-                                        
-                                    
                                     </tr>
                                 </thead>
                         
@@ -1065,6 +1139,7 @@
 
                                         <td id="cellb5">200</td>
                                         <td id="cellh5">40</td>
+                                        <td id="cellCVC5">40</td>
                                         <td id="cellHf5">2.00</td>
                                         <td id="cellHfl5">0.5</td>
 
@@ -1103,7 +1178,7 @@
                     <tr>
                         <th>Zanurzenie statyczne $$n \cdot T_{max}$$</th>
                         <th>Współczynnik osiadania $$m \cdot l \cdot 0,049047542 \cdot V^{2}\cdot \sqrt{\frac{T}{h}}\cdot (\frac{L}{B})^{-1,11}$$</th>
-                        <th>Wpływ falowania $$ k\cdot h_{f}$$</th>
+                        <th>Wpływ falowania $$ k\cdot h_{fl}$$</th>
                     </tr>
                 </thead>
                 
@@ -1112,7 +1187,7 @@
                 <td id="khf5">0</td>
 
             </table></td>
-            <td class="wzory">$$SD_{D} = n \cdot T_{max} + m \cdot l \cdot 0,049047542 \cdot V^{2}\cdot \sqrt{\frac{T}{h}}\cdot (\frac{L}{B})^{-1,11} + k \cdot h_{f}$$</td>
+            <td class="wzory">$$SD_{D} = n \cdot T_{max} + m \cdot l \cdot 0,049047542 \cdot V^{2}\cdot \sqrt{\frac{T}{h}}\cdot (\frac{L}{B})^{-1,11} + k \cdot h_{fl}$$</td>
             <td class="Jednostka">[m]</td>
             <td class="result">
                 <div class="result-container" id="resultContainer-5">
@@ -1121,8 +1196,22 @@
             </td>
         </tr>
         <tr>
-            <td class="opis"></td>
-            <td class="wzory">$$V_{ZD}=4,5154 \cdot \sqrt{\frac{SD_{D}-n\cdot T_{max}-k\cdot h_{f}}{m\cdot l \cdot \sqrt{\frac{T}{h}\cdot (\frac{L}{B})^{-1,11}}}}$$</td>
+            <td class="opis">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Prędkość krytyczna <br>V<sub>k</sub></th>
+                            <th>SD<sub>D</sub><br>[m]</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    
+                    <td id="vk5">0</td>
+                    <td id="SDD5">0</td>
+                    <td id="">0</td>
+                </table>
+            </td>
+            <td class="wzory">$$V_{ZD}=4,5154 \cdot \sqrt{\frac{SD_{D}-n\cdot T_{max}-k\cdot h_{fl}}{m\cdot l \cdot \sqrt{\frac{T}{h}\cdot (\frac{L}{B})^{-1,11}}}}$$</td>
             <td class="Jednostka">[kn]</td>
             <td class="result">
                 <div class="result-container" id="resultContainerV-5">
@@ -1145,7 +1234,7 @@
                 <td id="">0</td>
                 
             </table></td>
-            <td class="wzory">$$SD_{H}= Air Draft + OHC_{R} - \frac{m}{2} \cdot l \cdot 0,049047542 \cdot V^{2}\cdot \sqrt{\frac{T}{h}}\cdot (\frac{L}{B})^{-1,11} $$</td>
+            <td class="wzory">$$SD_{H}= ADT + OHC_{R} - \frac{m}{2} \cdot l \cdot 0,049047542 \cdot V^{2}\cdot \sqrt{\frac{T}{h}}\cdot (\frac{L}{B})^{-1,11} $$</td>
             <td class="Jednostka">[m]</td>
             <td class="result">
                 <div class="result-container" id="resultContainer-10">
@@ -1154,8 +1243,22 @@
             </td>
         </tr>
         <tr>
-            <td class="opis"></td>
-            <td class="wzory">$$V_{ZH}=6,3876 \cdot \sqrt{\frac{SD_{H}-Air Draft-OHC_{R}}{m\cdot l \cdot  \sqrt{\frac{T}{h}}\cdot (\frac{L}{B})^{-1,11}}}$$</td>
+            <td class="opis">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>SD<sub>H</sub><br>[m]</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    
+                    <td id="SDH5">0</td>
+                    <td id="">0</td>
+                    <td id="">[-]</td>
+                </table>
+            </td>
+            <td class="wzory">$$V_{ZH}=6,3876 \cdot \sqrt{\frac{SD_{H}-ADT-OHC_{R}}{m\cdot l \cdot  \sqrt{\frac{T}{h}}\cdot (\frac{L}{B})^{-1,11}}}$$</td>
             <td class="Jednostka">[kn]</td>
             <td class="result">
                 <div class="result-container" id="resultContainerV-10">
@@ -1167,111 +1270,166 @@
 </table></div>
 
 <div id="Metoda6" class="tabcontent">
-    <h2>Wyliczenia modeli domen 2d a) T. Coldwell'a b) M. Hansena c) Z. Pietrzykowskiego dla wąskich torów wodnych i akwenów otwartych.</h2>
+    <h2>Zmiana zanurzenia statku spowodowana zmianą gęstości wody.</h2>
     <table>
-        <tbody>
-            <thead>
-                <tr>
-                    <th> <img src="https://jkopp1717.github.io/Kalkulator-Domeny-Statku/Styles/images/parameters/przykładydomen.png">
-                    </th>
-                    <th>
-                        <table id="valueTable">
-                            <thead>
-                                <tr>
-                                    <th style="background-color: #ea5050b4;">L [m]</th>
-                                    <th style="background-color: #ea5050b4;">B [m]</th>
-                                    <th style="background-color: #ea5050b4;">H [m]</th>
-                                    <th style="background-color: #ea5050b4;">T [m]</th>
-                                    <th style="background-color: #ea5050b4;">v [w]</th>
-                                    <th style="background-color: #ea5050b4;">t [m]</th> 
-                                    <th style="background-color: #ea5050b4;">T<sub>max</sub> [m]</th>
-                                    <th style="background-color: #ea5050b4;">C<sub>b</sub> [-]</th>
-                                    <th style="background-color: #ea5050b4;">OHC<sub>r</sub> [m]</th>
-                                    <th style="background-color:#4658cc">b [m]</th>
-                                    <th style="background-color:#4658cc">h [m]</th>
-                                    <th style="background-color:#4658cc">h<sub>f</sub> [m]</th>
-                                    <th style="background-color:#4658cc">λ<sub>fl</sub> [m]</th>
-                                    <th style="background-color: #60b560">k [-]</th>
-                                    <th style="background-color: #60b560">n [-]</th>
-                                    <th style="background-color: #60b560">m [-]</th>
-                                    <th style="background-color: #60b560">l [-]</th>
-                                    
-                                    
-                                    
-                                    
-                                
-                                </tr>
-                            </thead>
-                    
-                            <tbody id="valueTableBody">
-                                <tr>
-                                    <td id="cellL6">100</td>
-                                    <td id="cellB6">10</td>
-                                    <td id="cellH6">20</td>
-                                    <td id="cellT6">10</td>
-
-                                    <td id="cellv6">10</td>
-                                    <td id="cellt6">0</td> 
-                                    <td id="cellTmax6">15</td>
-                                    <td id="cellCb8">1.00</td>
-                                    <td id="cellOHCs6">1.00</td>
-
-                                    <td id="cellb6">200</td>
-                                    <td id="cellh6">40</td>
-                                    <td id="cellHf6">2.00</td>
-                                    <td id="cellHfl6">0.5</td>
-
-                                    <td id="cellK6">1.10</td>
-                                    <td id="cellN6">1.0</td>
-                                    <td id="cellM6">0.5</td>
-                                    <td id="celll6">1</td>
-                                </div>
-                                </tr>
-                            </tbody>
-                    </table>
-
-    
-    
-                </th>
-                
-                <th>Jednostka</th>
-                <th>Wyniki</th>
+        <thead>
+            <tr>
+                <th colspan="7">Formuły i symbole</th>
             </tr>
         </thead>
-<tr>
-    <td class="opis"></td>
-    <td class="wzory"></td>
-    <td class="Jednostka">[m]</td>
-    <td class="result">
-        <div class="result-container" id="resultContainer-5">
-            <p id="Domena21"></p>
-        </div>
-    </td>
-</tr>
-<tr>
-    <td class="opis"></td>
-    <td class="wzory"></td>
-    <td class="Jednostka">[kn]</td>
-    <td class="result">
-        <div class="result-container" id="resultContainerV-5">
-            <p id="Domena22"></p>
-        </div>
-    </td>
-</tr>
-<tr>
-    <td class="opis"></td>
-    <td class="wzory"></td>
-    <td class="Jednostka">[m]</td>
-    <td class="result">
-        <div class="result-container" id="resultContainer-10">
-            <p id="Domena23"></p>
-        </div>
-    </td>
-</tr>
+        <tbody>
+            <tr>
+                <td colspan="7" class="blue">
+                    <strong>ΔT<sub>3</sub> = T<sub>2</sub> - T<sub>1</sub> = T<sub>1</sub> × (γ<sub>1</sub> - γ<sub>2</sub>) / γ<sub>2</sub> × δ / α</strong>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="7" class="blue">
+                    <strong>lub ΔT<sub>3</sub> = T<sub>2</sub> - T<sub>1</sub> = 1/100 × (γ<sub>1</sub> - γ<sub>2</sub>) / γ<sub>2</sub> × D / TPC</strong>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="7">
+                    gdzie: <br>
+                    ΔT - zmiana zanurzenia statku wywołana zmianą gęstości wody [m] <br>
+                    T<sub>1</sub> - zanurzenie statku w wodzie o gęstości γ<sub>1</sub> [m] <br>
+                    T<sub>2</sub> - zanurzenie statku w wodzie o gęstości γ<sub>2</sub> [m] <br>
+                    γ<sub>1</sub>, γ<sub>2</sub> - gęstości wody [t/m³] <br>
+                    δ - współczynnik pełnotliwości kadłuba <br>
+                    α - współczynnik pełnotliwości wodnicy <br>
+                    D - wypór statku [t] <br>
+                    TPC - masa powodująca zmianę zanurzenia 1 cm odczytana z krzywych hydrostatycznych [t/cm]
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
-</tbody>
+    <h2>Wartości liczbowe</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>T<sub>1</sub> [m]</th>
+                <th>γ<sub>1</sub> [t/m³]</th>
+                <th>γ<sub>2</sub> [t/m³]</th>
+                <th>δ [-]</th>
+                <th>α [-]</th>
+                <th>D [t]</th>
+                <th>TPC [t/cm]</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="number" id="T1" value="16.60" step="0.01" oninput="calculateResults()">
+                    
+                </td>
+                <td>
+                    <input type="number" id="gamma1" value="1.000" step="0.001" oninput="calculateResults()">
+                    
+                </td>
+                <td>
+                    <input type="number" id="gamma2" value="1.000" step="0.001" oninput="calculateResults()">
+                    
+                </td>
+                <td>
+                    <input type="number" id="delta" value="1.000" step="0.001" oninput="calculateResults()" max ="1">
+                    
+                </td>
+                <td>
+                    <input type="number" id="alpha" value="1.000" step="0.001" oninput="calculateResults()" max ="1">
+                    
+                </td>
+                <td>
+                    <input type="number" id="D" value="75000.0" step="100" oninput="calculateResults()">
+                    
+                </td>
+                <td>
+                    <input type="number" id="TPC" value="42.0" step="0.1" oninput="calculateResults()">
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Wyniki obliczeń</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Głębokość zmierzona w γ<sub>1</sub></th>
+            <th>Poprawka ΔT<sub>3</sub></th>
+            <th>Głębokość rzeczywista w γ<sub>2</sub></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>T<sub>1</sub> = <span id="depthGamma1">16.60</span> m</td>
+            <td><strong>ΔT<sub>3</sub> = T<sub>2</sub> - T<sub>1</sub> = T<sub>1</sub> × (γ<sub>1</sub> - γ<sub>2</sub>) / γ<sub>2</sub> × δ / α</strong> = <span id="deltaT33">0.00</span>m</td>
+            <td>T<sub>2</sub> = <span id="depthGamma5"> 16.6000</span> m</td>
+        </tr>
+        <tr>
+            <td>T<sub>1</sub> = <span id="depthGamma3">16.60</span> m</td>
+            <td><strong>ΔT<sub>3</sub> = T<sub>2</sub> - T<sub>1</sub> = 1/100 × (γ<sub>1</sub> - γ<sub>2</sub>) / γ<sub>2</sub> × D / TPC</strong> = <span id="deltaT3">0.00</span>m</td>
+            <td>T <sub>2</sub> = <span id="depthGamma2"> 16.6000</span> m</td>
+        </tr>
+    </tbody> 
+</table>
+
+
+
+<table id="valueTable">
+    <thead>
+        <tr>
+            <th style="background-color: #ea5050b4;">L [m]</th>
+            <th style="background-color: #ea5050b4;">B [m]</th>
+            <th style="background-color: #ea5050b4;">ADT [m]</th>
+            <th style="background-color: #ea5050b4;">T [m]</th>
+            <th style="background-color: #ea5050b4;">V [w]</th>
+            <th style="background-color: #ea5050b4;">t [m]</th> 
+            <th style="background-color: #ea5050b4;">T<sub>max</sub> [m]</th>
+            <th style="background-color: #ea5050b4;">C<sub>B</sub> [-]</th>
+            <th style="background-color: #ea5050b4;">OHC<sub>R</sub> [m]</th>
+            <th style="background-color:#4658cc">b [m]</th>
+            <th style="background-color:#4658cc">h [m]</th>
+            <th style="background-color:#4658cc">CVC [m]</th>
+            <th style="background-color:#4658cc">h<sub>fl</sub> [m]</th>
+            <th style="background-color:#4658cc">λ<sub>fl</sub> [m]</th>
+            <th style="background-color: #60b560">k [-]</th>
+            <th style="background-color: #60b560">n [-]</th>
+            <th style="background-color: #60b560">m [-]</th>
+            <th style="background-color: #60b560">l [-]</th>
+        </tr>
+    </thead>
+
+    <tbody id="valueTableBody">
+        <tr>
+            <td id="cellL6">100</td>
+            <td id="cellB6">10</td>
+            <td id="cellH6">20</td>
+            <td id="cellT6">10</td>
+
+            <td id="cellv6">10</td>
+            <td id="cellt6">0</td> 
+            <td id="cellTmax6">15</td>
+            <td id="cellCb8">1.00</td>
+            <td id="cellOHCs6">1.00</td>
+
+            <td id="cellb6">200</td>
+            <td id="cellh6">40</td>
+            <td id="cellCVC6">40</td>
+            <td id="cellHf6">2.00</td>
+            <td id="cellHfl6">0.5</td>
+
+            <td id="cellK6">1.10</td>
+            <td id="cellN6">1.0</td>
+            <td id="cellM6">0.5</td>
+            <td id="celll6">1</td>
+        </div>
+        </tr>
+    </tbody>
 </table>
 </div>
+
+
+
 
 
     <br>
@@ -1315,6 +1473,10 @@
 </body>
 
 </html>
+
+<!--Jednostki, Wysokości, indeksy, paramtry coldwella, parametry hansen, pietrzykowskiego, wysokość i szybkość, prezentacja domeny z Ecdis-->
+<!--Dodać rsquat, adt, ohcr do menu informacyjnego-->
+<!---->
 
 <!--Jednostki, Wysokości, indeksy, paramtry coldwella, parametry hansen, pietrzykowskiego, wysokość i szybkość, prezentacja domeny z Ecdis-->
 <!--Dodać rsquat, adt, ohcr do menu informacyjnego-->
