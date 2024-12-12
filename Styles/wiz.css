@@ -552,10 +552,47 @@ li button {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none; 
-  
-  
   width: 60%;
   height: 50%;
   
+}
+
+table input[type="number"] {
+  width: 80%; /* Zmniejszenie szerokości, aby zostawić miejsce na jednostki */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+/* Stylizacja jednostek obok pól input */
+table .measurement-unit {
+  display: inline-block;
+  width: 20%; /* Reszta szerokości po input */
+  text-align: right; /* Wyrównanie jednostek do prawej strony */
+  font-size: 14px;
+  color: #000000; /* Kolor jednostek dla czytelności */
+  padding-left: 2px; /* Odstęp między polem a jednostką */
+}
+
+/* Stylizacja dla aktywnego input */
+table input[type="number"]:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+#results {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+}
+
+#results p {
+  font-size: 16px;
+  margin: 5px 0;
 }
 
