@@ -216,21 +216,35 @@ function updateDescriptionInfo() {
           content: "Całkowita długość statku wyrażona w metrach odczytywana z danych statku (ang. Ship’s Particulars), karty Pilotowej (ang. Pilot Card) oraz np. systemu AIS: L= Lc=LOA, [m];"
       },
       B: {
-        title: "Szerokość statku (T)",
+        title: "Szerokość statku (B)",
         content: "Szerokość statku wyrażona w metrach odczytywana z danych statku (ang. Ship’s Particulars), karty Pilotowej (ang. Pilot Card) oraz np. systemu AIS, [m];"
     },
         T: {
             title: "Zanurzenie statku (T)",
-            content: "Zanurzenie statku, wartość wyrażana w metrach, [m];"
+            content: "Zanurzenie statku - wartość wyrażona w metrach, [m]."
         },
         v: {
-            title: "Prędkość statku (v)",
-            content: "Prędkość statku. Wielkość pisana małą literą wyrażona jest zwykle w metrach na sekundę (v [m/s]), pisana natomiast wielką literą wyrażana jest w węzłach (V [kn]);  "
+            title: "Prędkość statku (V)",
+            content: "Prędkość statku - wielkość pisana małą literą wyrażona jest zwykle w metrach na sekundę (v [m/s]), wielkość pisana wielką literą oznacza prędkość wyrażoną w węzłach, [kn] lub [w]."
         },
+        VZD: {
+          title: "Prędkość statku (VZD)",
+          content: "Składowa prędkości bezpiecznej statku VZ określona wzdłuż osi OZ dla pożądanej głębokości jego domeny (SDD) z uwzględnieniem wymaganego zapasu wody pod stępką UKCR, wartość wyrażana w węzłach, [kn]."
+      },
+      VZH: {
+        title: "Prędkość statku (VZH)",
+        content: "Składowa prędkości bezpiecznej statku VZ określona wzdłuż osi OZ dla pożądanego prześwitu powietrza pod mostem lub inną przeszkodą nadwodną (OHCR) z uwzględnieniem oszacowanego wcześniej parametru wysokości domeny statku (SDH), wartość wyrażona w węzłach [kn]."
+    },
+
+
         Cb: {
             title: "Współczynnik pełnotliwości kadłuba (Cb)",
-            content: "Współczynnik pełnotliwości kadłuba określający stosunek objętości podwodnej części kadłuba do objętości bryły o wymiarach odpowiednio równych: B, L, T, gdzie: L=długość statku, B= szerokość statku, T= zanurzeniu statku"
+            content: "Współczynnik pełnotliwości kadłuba określający stosunek objętości podwodnej części kadłuba do objętości bryły o wymiarach odpowiednio równych: B, L, T, gdzie: L=długość statku, B= szerokość statku, T= zanurzeniu statku, [-]"
         },
+        CVC: {
+          title: "Prześwit powietrza pod przeszkodą nawigacyjną (CVC)",
+          content: "Współczynnik pełnotliwości kadłuba określający stosunek objętości podwodnej części kadłuba do objętości bryły o wymiarach odpowiednio równych: B, L, T, gdzie: L=długość statku, B= szerokość statku, T= zanurzeniu statkuang. Charted Vertical Clearance – oznaczony na mapie prześwit powietrza (luz pionowy) zmierzony pod mostem, kablem energetycznym lub inną przeszkodą nadwodną, [m]."
+      },
         Tmax: {
             title: "Maksymalne zanurzenie statku (Tmax)",
             content: "Maksymalne (statyczne) zanurzenie statku (ang. maximum draft of the ship) wyrażone w metrach, [m];"
@@ -239,9 +253,19 @@ function updateDescriptionInfo() {
             title: "Szerokość akwenu (b)",
             content: "Szerokość akwenu żeglownego wyrażona w metrach. Symbol b ̄  oznacza wartość średnią, [m];"
         },
+
+        y: {
+          title: "Gęstość wody (y)",
+          content: "ang. Water Density, gęstość wody - wartość wyrażana w tonach na metr sześcienny [t/m3];"
+      },
+        g: {
+          title: "Przyśpieszenie ziemskie (g)",
+          content: "Przyspieszenie ziemskie: g = 9,81, [m/s2]."
+      },
+
         h: {
             title: "Głębokość akwenu (h)",
-            content: "Głębokość akwenu wyrażona w metrach, h ̄  oznacza wartość średnią, [m];"
+            content: "Głębokość akwenu wyrażona w metrach, [m]."
         },
         hf: {
             title: "Wysokość fali (hfl)",
@@ -249,24 +273,73 @@ function updateDescriptionInfo() {
         },
         lambdafl: {
           title: "Długość fali (λfl)",
-          content: "Długość fali wyrażona w metrach [m];"
+          content: "ang. Wave Length, długość fali - wartość wyrażana w metrach [m]."
       },
         k: {
             title: "Współczynnik korygujący (k)",
-            content: "Bezwymiarowy współczynnik wprowadzony przez Römisch-a przy ustalaniu prędkości granicznych statku, zależny od wymiarów statku (L, B, T) oraz parametrów kanału żeglownego (b, h). "
-        },
+            content: "bezwymiarowy współczynnik wprowadzony przez G. Rutkowskiego korygującego składową Rd pionowej rezerwy głębokości (parametru domeny SDD) od dynamicznego oddziaływania fali określona w funkcji parametrów statku (V, B, L, CB) oraz parametrów fali (, hf, q), [-]."},
         n: {
             title: "Współczynnik korygujący (n)",
-            content: "Bezwymiarowy współczynnik wprowadzony przez autora korygujący składową statyczną głębokości domeny statku (SDD) w funkcji zanurzenia statku T zależny od typu akwenu (portowe, tory przybrzeżne, akweny otwarte) oraz rodzaju dna (skaliste, piaszczyste, muliste). "
+            content: "Bezwymiarowy współczynnik wprowadzony przez G. Rutkowskiego korygujący składową statyczną głębokości domeny statku (SDD) w funkcji zanurzenia statku T zależny od typu akwenu (portowe, tory przybrzeżne, akweny otwarte) oraz rodzaju dna (skaliste, piaszczyste, muliste), [-]."
         },
+        n: {
+          title: "Współczynnik korygujący (n)",
+          content: "Bezwymiarowy współczynnik wprowadzony przez G. Rutkowskiego korygujący składową statyczną głębokości domeny statku (SDD) w funkcji zanurzenia statku T zależny od typu akwenu (portowe, tory przybrzeżne, akweny otwarte) oraz rodzaju dna (skaliste, piaszczyste, muliste), [-]."
+          },
+        OHC: {
+          title: "Prześwit nad górną częścią statku (OHC)",
+          content: "ang. Over-Head Clearance, prześwit nad „głową” czyli górną częścią statku wliczając w to maszty i przewożony i/lub holowany ładunek, dotyczy nawigacyjnej rezerwy wysokości podczas przejścia pod mostem lub inną przeszkodą zawieszoną nad wodą na trasie przejścia statku, [m]."
+          },
+
+          OHCr: {
+            title: "Minimalna wartość wymaganej rezerwy wysokości (OHCr)",
+            content: "ang. Over Head Clearance Required, oznacza minimalną wartość wymaganej nawigacyjnej rezerwy wysokości wyrażonej w metrach, analizowanej podczas przejścia statku pod mostem lub inną przeszkodą zawieszoną na trasie jego przejścia. W praktyce wymaga się, aby podczas przejścia pod mostem: OHCR ≥ 0,5m (zalecane OHCR= 1m), podczas przejścia pod linią energetyczną: 1,5m ≤ OHCR ≤ 5,0m, (zalecane OHCR = 3 m), gdy limit OHCR nie jest określony przez odpowiednie regulacje prawne, to wówczas zalecane OHCR = 5 m, [m]."
+            },
+
+            Rsquat: {
+              title: "Składowa pionowa osiadania statku (Rsquat)",
+              content: "ang. Squat, składowa pionowa rezerwy nawigacyjnej statku związana ze zjawiskiem jego osiadania. Jest ona mierzona wzdłuż osi OZ w dół od aktualnej linii wodnicy pływania i wyrażona w metrach, [m]."
+              },
+              SDD: {
+                title: "Głębokość domeny (SDD)",
+                content: "Głębokość domeny - wartość wyrażona w metrach, [m]."
+                },
+                SDH: {
+                  title: "Wysokość domeny (SDH)",
+                  content: "Wysokość domeny statku - wartość wyrażona w metrach, [m]."
+                  },
+                  t: {
+                    title: "Przegłębienie statku, trym  (t)",
+                    content: "Przegłębienie statku (trym): t= TD –TR - wartość wyrażana w metrach, [m]."},
+                    TPC: {
+                      title: "Masa powodująca zmianę zanurzenia o 1 cm  (TPC)",
+                      content: "Masa powodująca zmianę zanurzenia statku o 1cm [t/cm].przegłębienie statku (trym): t= TD –TR - wartość wyrażana w metrach, [m]."},
+                      UKC: {
+                        title: "Zapas wody po stępką (UKC)",
+                        content: "ang. Under Keel Clearance, zapas wody pod stępką (np. aktualnie oszacowany lub zmierzony zapas głębokości wody pod statkiem) [m]."},
+    
+                        UKCr: {
+                          title: "Minimalny zapas wody po stępką (UKCr)",
+                          content: "ang. Under Keel Clearance Required, pożądany (wymagany) minimalny zapas wody pod stępką; [m]."},
+      
+      
+
         m: {
             title: "Współczynnik korygujący (m)",
-            content: "Wprowadzony przez autora bezwymiarowy współczynnik (faktor: 1,0 =< m =< 2,0) korygujący składową pionową rezerwy nawigacyjnej statku (SDD) związanej z jego osiadaniem (Rsquat = f (m, V, B, L, T, CB, h, b)) ustalony w zależności od aktualnej sytuacji nawigacyjnej, w której znalazł się ten statek (np. wyprzedzanie, mijanie, przemieszczanie się na płyciźnie ponad nierównościami dennymi, nawigacja w lodzie, mule itp.) oraz rozbieżności w parametrach statku i parametrach basenu od parametrów przyjętych w źródłowej metodzie obliczania osiadania statku w ruchu;"
+            content: "Wprowadzony przez G. Rutkowskiego  bezwymiarowy współczynnik (faktor: 1,0  m  2,0) korygujący składową pionową rezerwy nawigacyjnej statku (SDD) związanej z jego osiadaniem (Rsquat = f (m, V, B, L, T, CB, h, b)) ustalony w zależności od aktualnej sytuacji nawigacyjnej, w której znalazł się ten statek (np. wyprzedzanie, mijanie, przemieszczanie się na płyciźnie ponad nierównościami dennymi, nawigacja w lodzie, mule itp.) oraz rozbieżności w parametrach statku i parametrach basenu od parametrów przyjętych w źródłowej metodzie obliczania osiadania statku w ruchu, [-]."
         },
         l: {
           title: "Współczynnik korygujący (l)",
           content: "bezwymiarowy współczynnik (faktor: 1.1 =< l =< 1.5) zależny od długości statku L oraz jego szerokości B korygujący osiadanie statku w ruchu stosowany przy metodzie G.I. Soukhomela i V.M. Zassa;"
       },
+      ADT: {
+        title: "Wysokość nadwodna (ADT)",
+        content: "ang. Air Draft, wysokość nadwodna statku, czyli pionowa wysokość najwyższego punktu statku (uwzględniając w tym przewożony ładunek) mierzona nad linią wodną, wyrażona w metrach, w literaturze polskojęzycznej oznaczana również symbolem HN=ADT, [m]."
+    },
+    m: {
+      title: "Współczynnik korygujący (m)",
+      content: "Wprowadzony przez G. Rutkowskiego  bezwymiarowy współczynnik (faktor: 1,0  m  2,0) korygujący składową pionową rezerwy nawigacyjnej statku (SDD) związanej z jego osiadaniem (Rsquat = f (m, V, B, L, T, CB, h, b)) ustalony w zależności od aktualnej sytuacji nawigacyjnej, w której znalazł się ten statek (np. wyprzedzanie, mijanie, przemieszczanie się na płyciźnie ponad nierównościami dennymi, nawigacja w lodzie, mule itp.) oraz rozbieżności w parametrach statku i parametrach basenu od parametrów przyjętych w źródłowej metodzie obliczania osiadania statku w ruchu, [-]."
+  },
         
     };
 
@@ -427,6 +500,8 @@ function calculateAllVZ(){
 
     // Walidacja warunków
 let war = num1 * num2 + num10 * num11;
+let war2 = num16 + num17;
+
     if (
       !(num1 >= 0 && num2 >= 0 && num3 >= 0 && num4 >= 0 && 
         num5 >= 0 && num6 >= 0 && num7 >= 0 && num8 >= 0 &&
@@ -485,7 +560,12 @@ let war = num1 * num2 + num10 * num11;
     }
 
     if (!(num19 >= war)) {
-      alert("Warunek CVC >= SDH >= n * Tmax + k * hfl  nie został spełniony! Sprawdź wprowadzone wartości.");
+      alert("Warunek T >= SDD >= n * Tmax + k * hfl  nie został spełniony! Sprawdź wprowadzone wartości.");
+      return;
+    }
+
+    if (!(num20 >= war2)) {
+      alert("Warunek H >= SDH >= ADT + OHC  nie został spełniony! Sprawdź wprowadzone wartości.");
       return;
     }
 
