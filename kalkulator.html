@@ -25,20 +25,35 @@
             <div class="descriptions-container">
                 <select id="descriptionSelect" onchange="updateDescriptionInfo()">
                     <option value="none" selected="default">Wybierz parametr</option>
-                    <option value="L">L - Długość statku</option>
+                    <option value="ADT">ADT - Wysokość nadwodna</option>
                     <option value="B">B - Szerokość statku</option>
-                    <option value="T">T - Zanurzenie statku</option>
-                    <option value="v">v - Prędkość statku</option>
-                    <option value="Cb">Cb - Współczynnik pełnotliwości kadłuba</option>
-                    <option value="Tmax">T<sub>max</sub> - Maksymalne zanurzenie statku</option>
                     <option value="b">b - Szerokość akwenu</option>
+                    <option value="Cb">C<sub>b</sub> - Współczynnik pełnotliwości kadłuba</option>
+                    <option value="CVC">CVC - Prześwit powietrza pod przeszkodą nawigacyjną</option>
+                    <option value="g">g - Przyśpieszenie ziemskie</option>
                     <option value="h">h - Głębokość akwenu</option>
-                    <option value="hf">hfl - Wysokość fali</option>
-                    <option value="lambdafl">λfl - Długość fali</option>
+                    <option value="hf">h<sub>fl</sub> - Wysokość fali</option>
                     <option value="k">k - Współczynnik korygujący</option>
-                    <option value="n">n - Współczynnik korygujący</option>
-                    <option value="m">m - Współczynnik korygujący</option>
+                    <option value="L">L - Długość statku</option>
                     <option value="l">l - Współczynnik korygujący</option> 
+                    <option value="m">m - Współczynnik korygujący</option>
+                    <option value="n">n - Współczynnik korygujący</option>
+                    <option value="OHC">OHC - Prześwit nad górną częścią statku</option>
+                    <option value="OHCr">OHC<sub>R</sub> - Minimalna wartość wymaganej rezerwy wysokości</option>
+                    <option value="Rsquat">R<sub>squat</sub> - Składowa pionowa osiadania statku</option>
+                    <option value="SDD">SDD - Głębokość domeny statku</option>
+                    <option value="SDH">SDH - Wysokość domeny statku</option>
+                    <option value="T">T - Zanurzenie statku</option>
+                    <option value="t">t - Przegłębienie statku</option>
+                    <option value="Tmax">T<sub>max</sub> - Maksymalne zanurzenie statku</option>
+                    <option value="TPC">TPC - Masa powodująca zmianę zanurzenia o 1 cm</option>
+                    <option value="UKC">UKC - Zapas wody po stępką</option>
+                    <option value="UKCr">UKC<sub>R</sub> - Minimalny zapas wody po stępką</option>
+                    <option value="v">V - Prędkość statku</option>
+                    <option value="VZD">V<sub>ZD</sub> - składowa prędkości bezpiecznej statku</option>
+                    <option value="VZH">V<sub>ZH</sub> - składowa prędkości bezpiecznej statku</option>
+                    <option value="y">y - gęstośc wody</option>
+                    <option value="lambdafl">λfl - Długość fali</option>      
                 </select>
                 <div id="descriptionInfo" class="description-info">
                     <div>
@@ -173,7 +188,7 @@
         
                     <div class="input-container">
                         <p class="equal">n = </p>
-                        <input type="number" step="0.05" id="num1" placeholder="Wprowadź n" value="1.0" min="1.0" maxlength="4" oninput="updateTable('num1', 'cellN'); updateRatios()">
+                        <input type="number" step="0.05" id="num1" placeholder="Wprowadź n" value="1.05" min="1.0" maxlength="4" oninput="updateTable('num1', 'cellN'); updateRatios()">
                         <p class="unit">[-]</p>
                         <span class="description"></span>
                     </div>
@@ -196,7 +211,7 @@
                     
                     <div class="input-container">
                         <p class="equal">SD<sub>D</sub> = </p>
-                        <input type="number" step="0.5" value="16.61" id="num19" placeholder="Wprowadź SDD"  min="0.5" maxlength="4" oninput="updateTable('', ''); updateRatios()">
+                        <input type="number" step="0.5" value="17" id="num19" placeholder="Wprowadź SDD"  min="0.5" maxlength="4" oninput="updateTable('', ''); updateRatios()">
                         <p class="unit">[m]</p>
                         <span class="description"></span>
                     </div>
@@ -325,24 +340,24 @@
         
                 <tbody id="valueTableBody">
                     <tr>
-                        <td id="cellL">100</td>
-                        <td id="cellB">10</td>
-                        <td id="cellH">20</td>
-                        <td id="cellT">10</td>
+                        <td id="cellL">343</td>
+                        <td id="cellB">56.5</td>
+                        <td id="cellH">39</td>
+                        <td id="cellT">15</td>
                         <td id="cellV">10</td>
                         <td id="cellt">0</td> 
                         <td id="cellTmax">15</td>
-                        <td id="cellCb">1.00</td>
-                        <td id="cellOHCs">1.00</td>
-                        <td id="cellb">200</td>
-                        <td id="cellH">40</td>
-                        <td id="cellCVC">40</td>
-                        <td id="cellHf">2.00</td>
+                        <td id="cellCb">0.84</td>
+                        <td id="cellOHCs">1</td>
+                        <td id="cellb">346.5</td>
+                        <td id="cellH">17</td>
+                        <td id="cellCVC">44</td>
+                        <td id="cellHf">1</td>
                         <td id="cellHfl">0.5</td>
-                        <td id="cellK">1.10</td>
-                        <td id="cellN">1.00</td>
-                        <td id="cellM">0.500</td>
-                        <td id="celll">1</td>
+                        <td id="cellK">1</td>
+                        <td id="cellN">1.05</td>
+                        <td id="cellM">1.5</td>
+                        <td id="celll">1.5</td>
                     </div>
                     </tr>
                 </tbody>
@@ -376,9 +391,9 @@
                 <table>
                 <thead>
                     <tr>
-                        <th>Zanurzenie statyczne $$n\cdot T_{max}$$</th>
-                        <th>Współczynnik osiadania $$\frac{m\cdot C_{B}}{30}\cdot (\frac{B\cdot T}{b\cdot h-B\cdot T})^{\frac{2}{3}}\cdot V^{2,08}$$</th>
-                        <th>Wpływ falowania $$k\cdot h_{fl}$$</th>
+                        <th>Zanurzenie statyczne [m]$$n\cdot T_{max}$$</th>
+                        <th>Współczynnik osiadania [m]$$\frac{m\cdot C_{B}}{30}\cdot (\frac{B\cdot T}{b\cdot h-B\cdot T})^{\frac{2}{3}}\cdot V^{2,08}$$</th>
+                        <th>Wpływ falowania [m]$$k\cdot h_{fl}$$</th>
                     </tr>
                 </thead>
                 
@@ -422,9 +437,9 @@
             <table>
             <thead>
                 <tr>
-                    <th>Prędkość krytyczna <br>V<sub>k</sub></th>
+                    <th>Prędkość krytyczna <br>V<sub>k</sub><br>[kn]</th>
                     <th>SD<sub>D</sub><br>[m]</th>
-                    <th>$$m\cdot C_{B}\cdot (\frac{B\cdot T}{b\cdot h-B\cdot T})^{\frac{2}{3}}$$</th>
+                    <th>$$m\cdot C_{B}\cdot (\frac{B\cdot T}{b\cdot h-B\cdot T})^{\frac{2}{3}}$$ [-]</th>
                 </tr>
             </thead>
             
@@ -453,9 +468,9 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>$$ADT$$</th>
-                            <th>$$OHC_{R}$$</th>
-                            <th>$$\frac{R_{squat}}{2}=\frac{m\cdot C_{B}}{60}\cdot (\frac{B\cdot T}{b\cdot h-B\cdot T})^{\frac{2}{3}}\cdot V^{2,08}$$</th>
+                            <th>ADT<br>[m]</th>
+                            <th>OHC<sub>R</sub><br>[m]</th>
+                            <th>$$\frac{R_{squat}}{2}=\frac{m\cdot C_{B}}{60}\cdot (\frac{B\cdot T}{b\cdot h-B\cdot T})^{\frac{2}{3}}\cdot V^{2,08}$$ [m]</th>
                             
                         </tr>
                     </thead>
@@ -498,7 +513,7 @@
                     <thead>
                         <tr>
                             <th>SD<sub>H</sub><br>[m]</th>
-                            <th>$$m\cdot C_{B}\cdot (\frac{B\cdot T}{b\cdot h-B\cdot T})^{\frac{2}{3}}$$</th>
+                            <th>$$m\cdot C_{B}\cdot (\frac{B\cdot T}{b\cdot h-B\cdot T})^{\frac{2}{3}}$$ [-]</th>
                             
                         </tr>
                     </thead>
@@ -615,9 +630,9 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Zanurzenie statyczne $$n \cdot T_{max}$$</th>
-                            <th>Współczynnik osiadania $$m\cdot (0.01\cdot C_{B}\cdot V^{2})$$</th>
-                            <th>Wpływ falowania $$ k\cdot h_{f}$$</th>
+                            <th>Zanurzenie statyczne [m] $$n \cdot T_{max}$$</th>
+                            <th>Współczynnik osiadania [m] $$m\cdot (0.01\cdot C_{B}\cdot V^{2})$$</th>
+                            <th>Wpływ falowania [m] $$ k\cdot h_{f}$$</th>
                         </tr>
                     </thead>
                     
@@ -640,8 +655,8 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Prędkość krytyczna <br>V<sub>k</sub></th>
-                            <th>$$0.01\cdot m\cdot C_{B}$$</th>
+                            <th>Prędkość krytyczna <br>V<sub>k</sub> [kn]</th>
+                            <th>$$0.01\cdot m\cdot C_{B}$$ [-]</th>
                             <th>SD<sub>D</sub><br>[m]</th>
                         </tr>
                     </thead>
@@ -667,7 +682,7 @@
                     <thead>
                         <tr>
                             <th>[-]</th>
-                            <th>Współczynnik osiadania $$0.005\cdot m\cdot C_{B}\cdot V^{2}$$</th>
+                            <th>Współczynnik osiadania $$0.005\cdot m\cdot C_{B}\cdot V^{2}$$ <br> [m]</th>
                             <th>[-]</th>
                         </tr>
                     </thead>
@@ -690,7 +705,7 @@
                     <thead>
                         <tr>
                             <th>SD<sub>H</sub><br>[m]</th>
-                            <th>$$0.005\cdot m\cdot C_{B}$$</th>
+                            <th>$$0.005\cdot m\cdot C_{B}$$ [-]</th>
                             <th>[-]</th>
                         </tr>
                     </thead>
@@ -802,9 +817,9 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Zanurzenie statyczne $$n \cdot T_{max}$$</th>
-                            <th>Współczynnik osiadania $$m\cdot (0.02\cdot C_{B}\cdot V^{2})$$</th>
-                            <th>Wpływ falowania $$ k\cdot h_{fl}$$</th>
+                            <th>Zanurzenie statyczne [m] $$n \cdot T_{max}$$</th>
+                            <th>Współczynnik osiadania [m] $$m\cdot (0.02\cdot C_{B}\cdot V^{2})$$</th>
+                            <th>Wpływ falowania [m] $$ k\cdot h_{fl}$$</th>
                         </tr>
                     </thead>
                     
@@ -827,8 +842,8 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Prędkość krytyczna <br>V<sub>k</sub></th>
-                            <th>$$0.02\cdot m \cdot C_{B}$$</th>
+                            <th>Prędkość krytyczna <br>V<sub>k</sub> [kn]</th>
+                            <th>$$0.02\cdot m \cdot C_{B}$$ [-]</th>
                             <th>SD<sub>D</sub><br>[m]</th>
                         </tr>
                     </thead>
@@ -852,7 +867,7 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th>$$m\cdot (0.01\cdot C_{B}\cdot V^{2})$$</th>
+                            <th>$$m\cdot (0.01\cdot C_{B}\cdot V^{2})$$ [m]</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -876,7 +891,7 @@
                     <thead>
                         <tr>
                             <th>SD<sub>H</sub><br>[m]</th>
-                            <th>$$0.01\cdot m \cdot C_{B}$$</th>
+                            <th>$$0.01\cdot m \cdot C_{B}$$ [-]</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -968,11 +983,11 @@
                                 <tr>
                                     
                                     <th> Współczynnik pełnotliwości kadłuba
-                                        $$ C_{B}\geq 0,7$$ 
+                                        $$ C_{B}\geq 0,7$$
 
                                     </th>
                                     <th>Proporcja głębokości akwenu do zanurzenia statycznego
-                                        $$1,08 \leq \frac{h}{T}\leq 2,78$$
+                                        $$1,08 \leq \frac{h}{T}\leq 2,78$$ 
                                     </th>
                                     
                                 </tr>
@@ -993,9 +1008,9 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Zanurzenie statyczne $$n \cdot T_{max}$$</th>
-                            <th>Współczynnik osiadania $$m\cdot (0,113\cdot B\cdot (\frac{h}{T})^{-0,27}\cdot (\frac{0,514\cdot V}{\sqrt{g \cdot h}})^{1,8})$$</th>
-                            <th>Wpływ falowania $$ k\cdot h_{fl}$$</th>
+                            <th>Zanurzenie statyczne [m] $$n \cdot T_{max}$$</th>
+                            <th>Współczynnik osiadania [m] $$m\cdot (0,113\cdot B\cdot (\frac{h}{T})^{-0,27}\cdot (\frac{0,514\cdot V}{\sqrt{g \cdot h}})^{1,8})$$</th>
+                            <th>Wpływ falowania [m] $$ k\cdot h_{fl}$$</th>
                         </tr>
                     </thead>
                     
@@ -1017,7 +1032,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Prędkość krytyczna <br>V<sub>k</sub></th>
+                            <th>Prędkość krytyczna <br>V<sub>k</sub>[kn]</th>
                             <th>SD<sub>D</sub><br>[m]</th>
                             <th></th>
                         </tr>
@@ -1043,7 +1058,7 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th>$$\frac{m}{2}\cdot (0,113\cdot B\cdot (\frac{h}{T})^{-0,27}\cdot (\frac{0,514\cdot V}{\sqrt{g \cdot h}})^{1,8})$$</th>
+                            <th>$$\frac{m}{2}\cdot (0,113\cdot B\cdot (\frac{h}{T})^{-0,27}\cdot (\frac{0,514\cdot V}{\sqrt{g \cdot h}})^{1,8})$$ [m]</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -1176,9 +1191,9 @@
             <td class="opis"><table>
                 <thead>
                     <tr>
-                        <th>Zanurzenie statyczne $$n \cdot T_{max}$$</th>
-                        <th>Współczynnik osiadania $$m \cdot l \cdot 0,049047542 \cdot V^{2}\cdot \sqrt{\frac{T}{h}}\cdot (\frac{L}{B})^{-1,11}$$</th>
-                        <th>Wpływ falowania $$ k\cdot h_{fl}$$</th>
+                        <th>Zanurzenie statyczne [m] $$n \cdot T_{max}$$</th>
+                        <th>Współczynnik osiadania [m] $$m \cdot l \cdot 0,049047542 \cdot V^{2}\cdot \sqrt{\frac{T}{h}}\cdot (\frac{L}{B})^{-1,11}$$</th>
+                        <th>Wpływ falowania [m] $$ k\cdot h_{fl}$$</th>
                     </tr>
                 </thead>
                 
@@ -1200,7 +1215,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Prędkość krytyczna <br>V<sub>k</sub></th>
+                            <th>Prędkość krytyczna <br>V<sub>k</sub> [kn]</th>
                             <th>SD<sub>D</sub><br>[m]</th>
                             <th></th>
                         </tr>
@@ -1224,7 +1239,7 @@
                 <thead>
                     <tr>
                         <th>[-]</th>
-                        <th>$$\frac{m}{2} \cdot l \cdot 0,049047542 \cdot V^{2}\cdot \sqrt{\frac{T}{h}}\cdot (\frac{L}{B})^{-1,11}$$</th>
+                        <th>$$\frac{m}{2} \cdot l \cdot 0,049047542 \cdot V^{2}\cdot \sqrt{\frac{T}{h}}\cdot (\frac{L}{B})^{-1,11}$$ [m]</th>
                         <th>[-]</th>
                     </tr>
                 </thead>
@@ -1473,12 +1488,4 @@
 </body>
 
 </html>
-
-<!--Jednostki, Wysokości, indeksy, paramtry coldwella, parametry hansen, pietrzykowskiego, wysokość i szybkość, prezentacja domeny z Ecdis-->
-<!--Dodać rsquat, adt, ohcr do menu informacyjnego-->
-<!---->
-
-<!--Jednostki, Wysokości, indeksy, paramtry coldwella, parametry hansen, pietrzykowskiego, wysokość i szybkość, prezentacja domeny z Ecdis-->
-<!--Dodać rsquat, adt, ohcr do menu informacyjnego-->
-<!---->
 
