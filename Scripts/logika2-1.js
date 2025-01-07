@@ -227,6 +227,10 @@ function updateDescriptionInfo() {
             title: "Prędkość statku (V)",
             content: "Prędkość statku - wielkość pisana małą literą wyrażona jest zwykle w metrach na sekundę (v [m/s]), wielkość pisana wielką literą oznacza prędkość wyrażoną w węzłach, [kn] lub [w]."
         },
+        vk: {
+          title: "Prędkość statku krytyczna (Vk)",
+          content: "Prędkość krytyczna statku. Wielkość pisana małą literą wyrażona jest zwykle w metrach na sekundę (vk= [m/s]), pisana zaś dużą literą wyrażana jest w węzłach (Vk [kn]); Obliczona według wzoru vk = 6.0883 * V^(1/2), Jednostka informacyjna dla użytkownika."
+      },
         VZD: {
           title: "Prędkość statku (VZD)",
           content: "Składowa prędkości bezpiecznej statku VZ określona wzdłuż osi OZ dla pożądanej głębokości jego domeny (SDD) z uwzględnieniem wymaganego zapasu wody pod stępką UKCR, wartość wyrażana w węzłach, [kn]."
